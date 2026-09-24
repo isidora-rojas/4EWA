@@ -1,0 +1,1695 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Document id="1l_O2CDX1GcR-O-G3qmyZHw0aD-rT8uOu">
+	<name>Ewa Sensor Map</name>
+	<Schema name="__managed_schema" id="__managed_schema">
+		<SimpleField type="string" name="COL5C3C131A43207F25">
+			<displayName>timestamp</displayName>
+		</SimpleField>
+		<SimpleField type="string" name="COL5C3C131A4355A6D9">
+			<displayName>begin</displayName>
+		</SimpleField>
+		<SimpleField type="string" name="COL5C3C131A43338C20">
+			<displayName>end</displayName>
+		</SimpleField>
+		<SimpleField type="string" name="COL5C3C131A43430E25">
+			<displayName>altitudeMode</displayName>
+		</SimpleField>
+		<SimpleField type="int" name="COL5C3C131A43A720C8">
+			<displayName>tessellate</displayName>
+		</SimpleField>
+		<SimpleField type="int" name="COL5C3C131A43E3222D">
+			<displayName>extrude</displayName>
+		</SimpleField>
+		<SimpleField type="int" name="COL5C3C131A4355A1B6">
+			<displayName>visibility</displayName>
+		</SimpleField>
+		<SimpleField type="int" name="COL5C3C131A4355BAC4">
+			<displayName>drawOrder</displayName>
+		</SimpleField>
+		<SimpleField type="string" name="COL5C3C131A43386D65">
+			<displayName>icon</displayName>
+		</SimpleField>
+		<SimpleField type="double" name="COL5C3C131A433F4F6F">
+			<displayName>id</displayName>
+		</SimpleField>
+		<SimpleField type="string" name="COL5C3C131A434FB322">
+			<displayName>SensorType</displayName>
+		</SimpleField>
+		<SimpleField type="double" name="COL5C3C131A438D045F">
+			<displayName>UTMx</displayName>
+		</SimpleField>
+		<SimpleField type="double" name="COL5C3C131A432D16A0">
+			<displayName>UTMy</displayName>
+		</SimpleField>
+		<SimpleField type="double" name="COL5C3C131A43E2F252">
+			<displayName>Longitude</displayName>
+		</SimpleField>
+		<SimpleField type="double" name="COL5C3C131A43208F2C">
+			<displayName>Latitude</displayName>
+		</SimpleField>
+		<SimpleField type="double" name="COL5C3C131A4332CDAC">
+			<displayName>Elev</displayName>
+		</SimpleField>
+		<SimpleField type="double" name="COL5B9D039A2D85EDD9">
+			<displayName>id</displayName>
+		</SimpleField>
+		<SimpleField type="string" name="COL5C3C1D4E060459A6">
+			<displayName>Name</displayName>
+		</SimpleField>
+		<SimpleField type="double" name="COL5B9D039A2D042128">
+			<displayName>UTMx</displayName>
+		</SimpleField>
+		<SimpleField type="double" name="COL5B9D039A2D377C41">
+			<displayName>UTMy</displayName>
+		</SimpleField>
+		<SimpleField type="double" name="COL5B9D039A2DCAC60D">
+			<displayName>Longitude</displayName>
+		</SimpleField>
+		<SimpleField type="double" name="COL5B9D039A2D2C44F0">
+			<displayName>Latitude</displayName>
+		</SimpleField>
+		<SimpleField type="double" name="COL5B9D039A2DF7E5C5">
+			<displayName>Elev</displayName>
+		</SimpleField>
+		<SimpleField type="string" name="COL5B9D039A2D13FDA5">
+			<displayName>SensorType</displayName>
+		</SimpleField>
+		<SimpleField type="double" name="COL5D7584A6C0670575">
+			<displayName>OBJECTID</displayName>
+		</SimpleField>
+		<SimpleField type="double" name="COL5D7584A6C00DD976">
+			<displayName>Shape_Leng</displayName>
+		</SimpleField>
+		<SimpleField type="double" name="COL5D7584A6C0F95637">
+			<displayName>TransOrder</displayName>
+		</SimpleField>
+		<SimpleField type="double" name="COL5D7584A6C084B557">
+			<displayName>CoralCover</displayName>
+		</SimpleField>
+	</Schema>
+	<gx:CascadingStyle kml:id="__managed_style_031B66267241F6A2383B_highlight">
+		<Style>
+			<IconStyle>
+				<scale>1.32</scale>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?color=fbc02d&amp;id=2005&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>3</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<gx:CascadingStyle kml:id="__managed_style_4F05131AC041F697969E_highlight">
+		<Style>
+			<IconStyle>
+				<color>ff00ff00</color>
+				<scale>1.2</scale>
+				<Icon>
+					<href>data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABaElEQVRYhe2VrXKDQBRGDzWoGIhvHCTxiKpg0tWr+ypVtelb9CVamCGqOyE6v6oRRMXxAFtRaCnTNCFDBsOZwVy+5X5793IXWlpaWhrGqKgfA/fAHdDPYivgHXgF3uqz9pseMAFSQB950kzTq/LhcyrQA56ABwDHceLhcJiORqOuYRhEUXRYLped9XrtZfoX4BH4qGLkPyaANk1zJ6UMkyRJdYkkSVIpZWia5o6vakzqSj4mK7uUMiwnLiOlDPk5jnEdBp4B7bruLN+5UmovhAgsy9ratr0VQgRKqX1eCcdxZpmJ5zoMKEq7F0IElBpQCBH8UQV1ToKbE+/7AL7vd/NAHMe3ZdF8Pv+OFbT9su4SA2ehtb547SkDK4Aoig55wPO8XVlUjBW0q4tdFTjahLZtby3LunoTNv4bwpUHUeVR7LpuPBgMUt/3u1prptPpYbFYdDabzdVGcW6iscuoSGPXcUtLy9X4BIG5PkyXUsc/AAAAAElFTkSuQmCC</href>
+				</Icon>
+			</IconStyle>
+			<LabelStyle>
+				<color>ff00ff00</color>
+				<scale>0.75</scale>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>3</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<gx:CascadingStyle kml:id="__managed_style_016BD4500D41F6A834B6_normal">
+		<Style>
+			<IconStyle>
+				<color>ffbc47ab</color>
+				<scale>1.1</scale>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?id=498&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>2</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<gx:CascadingStyle kml:id="__managed_style_047A9EBCDC41F698257B_highlight">
+		<Style>
+			<IconStyle>
+				<color>ff0000ff</color>
+				<scale>1.32</scale>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?id=498&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>3</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<StyleMap id="__managed_style_050DE162A241F69F5758">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#__managed_style_050DE162A241F69F5758_normal</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#__managed_style_050DE162A241F69F5758_highlight</styleUrl>
+		</Pair>
+	</StyleMap>
+	<gx:CascadingStyle kml:id="__managed_style_09BB6E2B2441F697969B_highlight">
+		<Style>
+			<IconStyle>
+				<color>ff00ffff</color>
+				<scale>1.08</scale>
+				<Icon>
+					<href>data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABaElEQVRYhe2VrXKDQBRGDzWoGIhvHCTxiKpg0tWr+ypVtelb9CVamCGqOyE6v6oRRMXxAFtRaCnTNCFDBsOZwVy+5X5793IXWlpaWhrGqKgfA/fAHdDPYivgHXgF3uqz9pseMAFSQB950kzTq/LhcyrQA56ABwDHceLhcJiORqOuYRhEUXRYLped9XrtZfoX4BH4qGLkPyaANk1zJ6UMkyRJdYkkSVIpZWia5o6vakzqSj4mK7uUMiwnLiOlDPk5jnEdBp4B7bruLN+5UmovhAgsy9ratr0VQgRKqX1eCcdxZpmJ5zoMKEq7F0IElBpQCBH8UQV1ToKbE+/7AL7vd/NAHMe3ZdF8Pv+OFbT9su4SA2ehtb547SkDK4Aoig55wPO8XVlUjBW0q4tdFTjahLZtby3LunoTNv4bwpUHUeVR7LpuPBgMUt/3u1prptPpYbFYdDabzdVGcW6iscuoSGPXcUtLy9X4BIG5PkyXUsc/AAAAAElFTkSuQmCC</href>
+				</Icon>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>3</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<gx:CascadingStyle kml:id="__managed_style_09BB6E2B2441F697969B_normal">
+		<Style>
+			<IconStyle>
+				<color>ff00ffff</color>
+				<scale>0.9</scale>
+				<Icon>
+					<href>data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABaElEQVRYhe2VrXKDQBRGDzWoGIhvHCTxiKpg0tWr+ypVtelb9CVamCGqOyE6v6oRRMXxAFtRaCnTNCFDBsOZwVy+5X5793IXWlpaWhrGqKgfA/fAHdDPYivgHXgF3uqz9pseMAFSQB950kzTq/LhcyrQA56ABwDHceLhcJiORqOuYRhEUXRYLped9XrtZfoX4BH4qGLkPyaANk1zJ6UMkyRJdYkkSVIpZWia5o6vakzqSj4mK7uUMiwnLiOlDPk5jnEdBp4B7bruLN+5UmovhAgsy9ratr0VQgRKqX1eCcdxZpmJ5zoMKEq7F0IElBpQCBH8UQV1ToKbE+/7AL7vd/NAHMe3ZdF8Pv+OFbT9su4SA2ehtb547SkDK4Aoig55wPO8XVlUjBW0q4tdFTjahLZtby3LunoTNv4bwpUHUeVR7LpuPBgMUt/3u1prptPpYbFYdDabzdVGcW6iscuoSGPXcUtLy9X4BIG5PkyXUsc/AAAAAElFTkSuQmCC</href>
+				</Icon>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>2</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<StyleMap id="__managed_style_047A9EBCDC41F698257B">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#__managed_style_047A9EBCDC41F698257B_normal</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#__managed_style_047A9EBCDC41F698257B_highlight</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="__managed_style_09BB6E2B2441F697969B">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#__managed_style_09BB6E2B2441F697969B_normal</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#__managed_style_09BB6E2B2441F697969B_highlight</styleUrl>
+		</Pair>
+	</StyleMap>
+	<gx:CascadingStyle kml:id="__managed_style_81166C16FA41F697969C_highlight">
+		<Style>
+			<IconStyle>
+				<color>ff00aa00</color>
+				<scale>1.32</scale>
+				<Icon>
+					<href>data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAV0lEQVRYhe3VQQ4AEAxE0Vbc/8q1IjZCiczmvy2hpoQZAIj5Zjw+r2/lcYNn9WRSRC4I9+3BB3kC8gKOWjBbxZttUydPgAIoIP0Kbm/7ijwBeQH8hgDkGjNkCyJ/5nWxAAAAAElFTkSuQmCC</href>
+				</Icon>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>3</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<gx:CascadingStyle kml:id="__managed_style_050DE162A241F69F5758_normal">
+		<Style>
+			<IconStyle>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?color=66bb6a&amp;id=2003&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>2</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<gx:CascadingStyle kml:id="__managed_style_81166C16FA41F697969C_normal">
+		<Style>
+			<IconStyle>
+				<color>ff00aa00</color>
+				<scale>1.1</scale>
+				<Icon>
+					<href>data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAV0lEQVRYhe3VQQ4AEAxE0Vbc/8q1IjZCiczmvy2hpoQZAIj5Zjw+r2/lcYNn9WRSRC4I9+3BB3kC8gKOWjBbxZttUydPgAIoIP0Kbm/7ijwBeQH8hgDkGjNkCyJ/5nWxAAAAAElFTkSuQmCC</href>
+				</Icon>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>2</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<StyleMap id="__managed_style_031B66267241F6A2383B">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#__managed_style_031B66267241F6A2383B_normal</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#__managed_style_031B66267241F6A2383B_highlight</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="__managed_style_81166C16FA41F697969C">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#__managed_style_81166C16FA41F697969C_normal</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#__managed_style_81166C16FA41F697969C_highlight</styleUrl>
+		</Pair>
+	</StyleMap>
+	<gx:CascadingStyle kml:id="__managed_style_3F43E926C841F697969E_normal">
+		<styleUrl>https://earth.google.com/balloon_components/base/1.1.0.0/card_template.kml#main</styleUrl>
+		<Style>
+			<IconStyle>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?color=1976d2&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>2</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<gx:CascadingStyle kml:id="__managed_style_04394EB13A41F697969E_highlight">
+		<Style>
+			<IconStyle>
+				<color>ff0000ff</color>
+				<scale>1.56</scale>
+				<Icon>
+					<href>data:image/png;base64,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</href>
+				</Icon>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>3</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<gx:CascadingStyle kml:id="__managed_style_998EE70A8B41F697969C_highlight">
+		<Style>
+			<IconStyle>
+				<color>ff00ff00</color>
+				<scale>1.08</scale>
+				<Icon>
+					<href>data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABaElEQVRYhe2VrXKDQBRGDzWoGIhvHCTxiKpg0tWr+ypVtelb9CVamCGqOyE6v6oRRMXxAFtRaCnTNCFDBsOZwVy+5X5793IXWlpaWhrGqKgfA/fAHdDPYivgHXgF3uqz9pseMAFSQB950kzTq/LhcyrQA56ABwDHceLhcJiORqOuYRhEUXRYLped9XrtZfoX4BH4qGLkPyaANk1zJ6UMkyRJdYkkSVIpZWia5o6vakzqSj4mK7uUMiwnLiOlDPk5jnEdBp4B7bruLN+5UmovhAgsy9ratr0VQgRKqX1eCcdxZpmJ5zoMKEq7F0IElBpQCBH8UQV1ToKbE+/7AL7vd/NAHMe3ZdF8Pv+OFbT9su4SA2ehtb547SkDK4Aoig55wPO8XVlUjBW0q4tdFTjahLZtby3LunoTNv4bwpUHUeVR7LpuPBgMUt/3u1prptPpYbFYdDabzdVGcW6iscuoSGPXcUtLy9X4BIG5PkyXUsc/AAAAAElFTkSuQmCC</href>
+				</Icon>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>3</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<gx:CascadingStyle kml:id="__managed_style_543544EE3441F697969C_highlight">
+		<Style>
+			<IconStyle>
+				<scale>1.2</scale>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?color=1976d2&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>3</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<gx:CascadingStyle kml:id="__managed_style_998EE70A8B41F697969C_normal">
+		<Style>
+			<IconStyle>
+				<color>ff00ff00</color>
+				<scale>0.9</scale>
+				<Icon>
+					<href>data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABaElEQVRYhe2VrXKDQBRGDzWoGIhvHCTxiKpg0tWr+ypVtelb9CVamCGqOyE6v6oRRMXxAFtRaCnTNCFDBsOZwVy+5X5793IXWlpaWhrGqKgfA/fAHdDPYivgHXgF3uqz9pseMAFSQB950kzTq/LhcyrQA56ABwDHceLhcJiORqOuYRhEUXRYLped9XrtZfoX4BH4qGLkPyaANk1zJ6UMkyRJdYkkSVIpZWia5o6vakzqSj4mK7uUMiwnLiOlDPk5jnEdBp4B7bruLN+5UmovhAgsy9ratr0VQgRKqX1eCcdxZpmJ5zoMKEq7F0IElBpQCBH8UQV1ToKbE+/7AL7vd/NAHMe3ZdF8Pv+OFbT9su4SA2ehtb547SkDK4Aoig55wPO8XVlUjBW0q4tdFTjahLZtby3LunoTNv4bwpUHUeVR7LpuPBgMUt/3u1prptPpYbFYdDabzdVGcW6iscuoSGPXcUtLy9X4BIG5PkyXUsc/AAAAAElFTkSuQmCC</href>
+				</Icon>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>2</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<gx:CascadingStyle kml:id="__managed_style_4D769AFF5041F697969F_normal">
+		<Style>
+			<IconStyle>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?color=1976d2&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff0000ff</color>
+				<width>1.5</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<StyleMap id="__managed_style_543544EE3441F697969C">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#__managed_style_543544EE3441F697969C_normal</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#__managed_style_543544EE3441F697969C_highlight</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="__managed_style_4D769AFF5041F697969F">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#__managed_style_4D769AFF5041F697969F_normal</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#__managed_style_4D769AFF5041F697969F_highlight</styleUrl>
+		</Pair>
+	</StyleMap>
+	<gx:CascadingStyle kml:id="__managed_style_2B8642F28D41F697969E_highlight">
+		<Style>
+			<IconStyle>
+				<color>ffffff00</color>
+				<scale>1.2</scale>
+				<Icon>
+					<href>data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABaElEQVRYhe2VrXKDQBRGDzWoGIhvHCTxiKpg0tWr+ypVtelb9CVamCGqOyE6v6oRRMXxAFtRaCnTNCFDBsOZwVy+5X5793IXWlpaWhrGqKgfA/fAHdDPYivgHXgF3uqz9pseMAFSQB950kzTq/LhcyrQA56ABwDHceLhcJiORqOuYRhEUXRYLped9XrtZfoX4BH4qGLkPyaANk1zJ6UMkyRJdYkkSVIpZWia5o6vakzqSj4mK7uUMiwnLiOlDPk5jnEdBp4B7bruLN+5UmovhAgsy9ratr0VQgRKqX1eCcdxZpmJ5zoMKEq7F0IElBpQCBH8UQV1ToKbE+/7AL7vd/NAHMe3ZdF8Pv+OFbT9su4SA2ehtb547SkDK4Aoig55wPO8XVlUjBW0q4tdFTjahLZtby3LunoTNv4bwpUHUeVR7LpuPBgMUt/3u1prptPpYbFYdDabzdVGcW6iscuoSGPXcUtLy9X4BIG5PkyXUsc/AAAAAElFTkSuQmCC</href>
+				</Icon>
+			</IconStyle>
+			<LabelStyle>
+				<color>ffffff00</color>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>3</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<StyleMap id="__managed_style_04394EB13A41F697969E">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#__managed_style_04394EB13A41F697969E_normal</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#__managed_style_04394EB13A41F697969E_highlight</styleUrl>
+		</Pair>
+	</StyleMap>
+	<gx:CascadingStyle kml:id="__managed_style_05A01F68AE41F697969C_highlight">
+		<Style>
+			<IconStyle>
+				<scale>1.2</scale>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?color=1976d2&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>3</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<StyleMap id="__managed_style_3F43E926C841F697969E">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#__managed_style_3F43E926C841F697969E_normal</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#__managed_style_3F43E926C841F697969E_highlight</styleUrl>
+		</Pair>
+	</StyleMap>
+	<gx:CascadingStyle kml:id="__managed_style_016BD4500D41F6A834B6_highlight">
+		<Style>
+			<IconStyle>
+				<color>ffbc47ab</color>
+				<scale>1.32</scale>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?id=498&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>3</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<gx:CascadingStyle kml:id="__managed_style_2B8642F28D41F697969E_normal">
+		<Style>
+			<IconStyle>
+				<color>ffffff00</color>
+				<Icon>
+					<href>data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABaElEQVRYhe2VrXKDQBRGDzWoGIhvHCTxiKpg0tWr+ypVtelb9CVamCGqOyE6v6oRRMXxAFtRaCnTNCFDBsOZwVy+5X5793IXWlpaWhrGqKgfA/fAHdDPYivgHXgF3uqz9pseMAFSQB950kzTq/LhcyrQA56ABwDHceLhcJiORqOuYRhEUXRYLped9XrtZfoX4BH4qGLkPyaANk1zJ6UMkyRJdYkkSVIpZWia5o6vakzqSj4mK7uUMiwnLiOlDPk5jnEdBp4B7bruLN+5UmovhAgsy9ratr0VQgRKqX1eCcdxZpmJ5zoMKEq7F0IElBpQCBH8UQV1ToKbE+/7AL7vd/NAHMe3ZdF8Pv+OFbT9su4SA2ehtb547SkDK4Aoig55wPO8XVlUjBW0q4tdFTjahLZtby3LunoTNv4bwpUHUeVR7LpuPBgMUt/3u1prptPpYbFYdDabzdVGcW6iscuoSGPXcUtLy9X4BIG5PkyXUsc/AAAAAElFTkSuQmCC</href>
+				</Icon>
+			</IconStyle>
+			<LabelStyle>
+				<color>ffffff00</color>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>2</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<gx:CascadingStyle kml:id="__managed_style_050DE162A241F69F5758_highlight">
+		<Style>
+			<IconStyle>
+				<scale>1.2</scale>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?color=66bb6a&amp;id=2003&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>3</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<gx:CascadingStyle kml:id="__managed_style_4F05131AC041F697969E_normal">
+		<Style>
+			<IconStyle>
+				<color>ff00ff00</color>
+				<Icon>
+					<href>data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABaElEQVRYhe2VrXKDQBRGDzWoGIhvHCTxiKpg0tWr+ypVtelb9CVamCGqOyE6v6oRRMXxAFtRaCnTNCFDBsOZwVy+5X5793IXWlpaWhrGqKgfA/fAHdDPYivgHXgF3uqz9pseMAFSQB950kzTq/LhcyrQA56ABwDHceLhcJiORqOuYRhEUXRYLped9XrtZfoX4BH4qGLkPyaANk1zJ6UMkyRJdYkkSVIpZWia5o6vakzqSj4mK7uUMiwnLiOlDPk5jnEdBp4B7bruLN+5UmovhAgsy9ratr0VQgRKqX1eCcdxZpmJ5zoMKEq7F0IElBpQCBH8UQV1ToKbE+/7AL7vd/NAHMe3ZdF8Pv+OFbT9su4SA2ehtb547SkDK4Aoig55wPO8XVlUjBW0q4tdFTjahLZtby3LunoTNv4bwpUHUeVR7LpuPBgMUt/3u1prptPpYbFYdDabzdVGcW6iscuoSGPXcUtLy9X4BIG5PkyXUsc/AAAAAElFTkSuQmCC</href>
+				</Icon>
+			</IconStyle>
+			<LabelStyle>
+				<color>ff00ff00</color>
+				<scale>0.75</scale>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>2</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<StyleMap id="__managed_style_2B8642F28D41F697969E">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#__managed_style_2B8642F28D41F697969E_normal</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#__managed_style_2B8642F28D41F697969E_highlight</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="__managed_style_016BD4500D41F6A834B6">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#__managed_style_016BD4500D41F6A834B6_normal</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#__managed_style_016BD4500D41F6A834B6_highlight</styleUrl>
+		</Pair>
+	</StyleMap>
+	<gx:CascadingStyle kml:id="__managed_style_04394EB13A41F697969E_normal">
+		<Style>
+			<IconStyle>
+				<color>ff0000ff</color>
+				<scale>1.3</scale>
+				<Icon>
+					<href>data:image/png;base64,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</href>
+				</Icon>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>2</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<StyleMap id="__managed_style_998EE70A8B41F697969C">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#__managed_style_998EE70A8B41F697969C_normal</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#__managed_style_998EE70A8B41F697969C_highlight</styleUrl>
+		</Pair>
+	</StyleMap>
+	<gx:CascadingStyle kml:id="__managed_style_543544EE3441F697969C_normal">
+		<Style>
+			<IconStyle>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?color=1976d2&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>2</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<StyleMap id="__managed_style_4F05131AC041F697969E">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#__managed_style_4F05131AC041F697969E_normal</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#__managed_style_4F05131AC041F697969E_highlight</styleUrl>
+		</Pair>
+	</StyleMap>
+	<gx:CascadingStyle kml:id="__managed_style_2D521C3A3141F697969C_highlight">
+		<Style>
+			<IconStyle>
+				<scale>1.2</scale>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?color=1976d2&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>3</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<StyleMap id="__managed_style_6DF6BC51BF41F697969C">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#__managed_style_6DF6BC51BF41F697969C_normal</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#__managed_style_6DF6BC51BF41F697969C_highlight</styleUrl>
+		</Pair>
+	</StyleMap>
+	<gx:CascadingStyle kml:id="__managed_style_2D521C3A3141F697969C_normal">
+		<Style>
+			<IconStyle>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?color=1976d2&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>2</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<gx:CascadingStyle kml:id="__managed_style_12BBC8BE9C41F697969E_highlight">
+		<styleUrl>https://earth.google.com/balloon_components/base/1.1.0.0/card_template.kml#main</styleUrl>
+		<Style>
+			<IconStyle>
+				<scale>1.2</scale>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?color=1976d2&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>3</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<gx:CascadingStyle kml:id="__managed_style_4D769AFF5041F697969F_highlight">
+		<Style>
+			<IconStyle>
+				<scale>1.2</scale>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?color=1976d2&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff0000ff</color>
+				<width>2.25</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<gx:CascadingStyle kml:id="__managed_style_3F43E926C841F697969E_highlight">
+		<styleUrl>https://earth.google.com/balloon_components/base/1.1.0.0/card_template.kml#main</styleUrl>
+		<Style>
+			<IconStyle>
+				<scale>1.2</scale>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?color=1976d2&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>3</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<gx:CascadingStyle kml:id="__managed_style_05A01F68AE41F697969C_normal">
+		<Style>
+			<IconStyle>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?color=1976d2&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>2</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<gx:CascadingStyle kml:id="__managed_style_12BBC8BE9C41F697969E_normal">
+		<styleUrl>https://earth.google.com/balloon_components/base/1.1.0.0/card_template.kml#main</styleUrl>
+		<Style>
+			<IconStyle>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?color=1976d2&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>2</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<StyleMap id="__managed_style_2D521C3A3141F697969C">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#__managed_style_2D521C3A3141F697969C_normal</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#__managed_style_2D521C3A3141F697969C_highlight</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="__managed_style_05A01F68AE41F697969C">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#__managed_style_05A01F68AE41F697969C_normal</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#__managed_style_05A01F68AE41F697969C_highlight</styleUrl>
+		</Pair>
+	</StyleMap>
+	<gx:CascadingStyle kml:id="__managed_style_6DF6BC51BF41F697969C_normal">
+		<styleUrl>https://earth.google.com/balloon_components/base/1.1.0.0/card_template.kml#main</styleUrl>
+		<Style>
+			<IconStyle>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?color=f57c00&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>2</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<gx:CascadingStyle kml:id="__managed_style_6DF6BC51BF41F697969C_highlight">
+		<styleUrl>https://earth.google.com/balloon_components/base/1.1.0.0/card_template.kml#main</styleUrl>
+		<Style>
+			<IconStyle>
+				<scale>1.2</scale>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?color=f57c00&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>3</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<gx:CascadingStyle kml:id="__managed_style_031B66267241F6A2383B_normal">
+		<Style>
+			<IconStyle>
+				<scale>1.1</scale>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?color=fbc02d&amp;id=2005&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>2</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<StyleMap id="__managed_style_12BBC8BE9C41F697969E">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#__managed_style_12BBC8BE9C41F697969E_normal</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#__managed_style_12BBC8BE9C41F697969E_highlight</styleUrl>
+		</Pair>
+	</StyleMap>
+	<gx:CascadingStyle kml:id="__managed_style_047A9EBCDC41F698257B_normal">
+		<Style>
+			<IconStyle>
+				<color>ff0000ff</color>
+				<scale>1.1</scale>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?id=498&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>2</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<Placemark id="0E28B76C673EBF560719">
+		<name>Lidar</name>
+		<visibility>0</visibility>
+		<description><![CDATA[<div>View from beach and potential lidar location on top of house<br></div>]]></description>
+		<LookAt>
+			<longitude>-158.0454371419034</longitude>
+			<latitude>21.303372785728</latitude>
+			<altitude>2.869873436959209</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>811.3879553791776</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_6DF6BC51BF41F697969C</styleUrl>
+		<gx:Carousel>
+			<gx:Image kml:id="hosted_image_QUFqUWJSN2VkSDNXMDZDa01vQnJUbVphR0JZSGpCZmlra24wZ0VxNDZVRkpHdTQxeityQzFwMURRQ2lZZG4yaGpOTElxMVp0MXB1Z3IwdVJFOEh4c3ViOEJPT0hMbnY0UjczUnB0YjBwdXlYOGo0NlFhSmI0bXlTNUlYY2huNyt0ckw4UHlXVVgrK2FlK1JuMDBTRG1iaUdjTVpYRXlnRHcrWXVOdGlvR3RRdW8yNmk1TnkyMDlrZlB0cExYbkVrWkNxMFd1Y3QyYk1mTDhSZTRiSTduQTN4K1ltWDkyUU03VU91cy9zQU9EVmEyTFIzcEpnNTY2RWpheFFoNFhjbGgwY2hsazQ9">
+				<gx:imageUrl>https://earth.usercontent.google.com/hostedimage/e/*/4AAjQbR6OlBGn_ARJe-Xsa60yD63Bd7_SbJSp7iKAhHZqDW9ZiW1NFAaze5YY5oxAGean_oCYkdRWCpEz9Ajycfj3_GXY7vF9tBJ3FW36goVJSQX_QvsVgfBL1dN55cbzbbtA87AxXs6U276ypiMOvASmibPxAs8jS4QRxNYUwUieChD9lTcOcSSoQR3dhoJN7SdZAACTRS_RH3Tda3-6NOxgVU9iTqojced6vI47Cn1XmFb89fApjnMReJHf4W9ixOtlRJNnB8rfRe_6xalQ?authuser=0&amp;fife=s{size}</gx:imageUrl>
+			</gx:Image>
+		</gx:Carousel>
+		<Point>
+			<coordinates>-158.046935107726,21.30285190230541,2.424426268504927</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="5D7584A5CE000008">
+		<name>E</name>
+		<styleUrl>#__managed_style_05A01F68AE41F697969C</styleUrl>
+		<ExtendedData>
+			<SchemaData schemaUrl="#__managed_schema">
+				<SimpleData name="COL5D7584A6C0670575">6595</SimpleData>
+				<SimpleData name="COL5D7584A6C00DD976">10000.0090628</SimpleData>
+				<SimpleData name="COL5D7584A6C0F95637">6595</SimpleData>
+				<SimpleData name="COL5D7584A6C084B557">0</SimpleData>
+			</SchemaData>
+		</ExtendedData>
+		<LineString>
+			<coordinates>
+				-158.019430041515,21.2860945252713,-55.11489868164059 -158.026532646568,21.319566449805,6.94160890579224 
+			</coordinates>
+		</LineString>
+	</Placemark>
+	<Placemark id="5D7584A5CE000009">
+		<name>D</name>
+		<styleUrl>#__managed_style_05A01F68AE41F697969C</styleUrl>
+		<ExtendedData>
+			<SchemaData schemaUrl="#__managed_schema">
+				<SimpleData name="COL5D7584A6C0670575">6605</SimpleData>
+				<SimpleData name="COL5D7584A6C00DD976">10000.005328699997</SimpleData>
+				<SimpleData name="COL5D7584A6C0F95637">6605</SimpleData>
+				<SimpleData name="COL5D7584A6C084B557">0</SimpleData>
+			</SchemaData>
+		</ExtendedData>
+		<LineString>
+			<coordinates>
+				-158.0250044366358,21.28287828534162,-35.2724304199219 -158.0289086837678,21.29985590264131,-13.71981549263002 -158.0328521383768,21.31692768899881,7.83279943466187 
+			</coordinates>
+		</LineString>
+	</Placemark>
+	<Placemark id="5D7584A5CE00000A">
+		<name>C</name>
+		<styleUrl>#__managed_style_05A01F68AE41F697969C</styleUrl>
+		<ExtendedData>
+			<SchemaData schemaUrl="#__managed_schema">
+				<SimpleData name="COL5D7584A6C0670575">6615</SimpleData>
+				<SimpleData name="COL5D7584A6C00DD976">10000.000763</SimpleData>
+				<SimpleData name="COL5D7584A6C0F95637">6615</SimpleData>
+				<SimpleData name="COL5D7584A6C084B557">0</SimpleData>
+			</SchemaData>
+		</ExtendedData>
+		<LineString>
+			<coordinates>
+				-158.037919936276,21.2794926383823,-32.270263671875 -158.045221923744,21.3156163224233,8.043745040893549 
+			</coordinates>
+		</LineString>
+	</Placemark>
+	<Placemark id="5D7584A5CE00000B">
+		<name>A</name>
+		<description><![CDATA[<div>A</div>]]></description>
+		<styleUrl>#__managed_style_12BBC8BE9C41F697969E</styleUrl>
+		<ExtendedData>
+			<SchemaData schemaUrl="#__managed_schema">
+				<SimpleData name="COL5D7584A6C0670575">6625</SimpleData>
+				<SimpleData name="COL5D7584A6C00DD976">9999.99844697</SimpleData>
+				<SimpleData name="COL5D7584A6C0F95637">6625</SimpleData>
+				<SimpleData name="COL5D7584A6C084B557">0</SimpleData>
+			</SchemaData>
+		</ExtendedData>
+		<LineString>
+			<coordinates>
+				-158.047212663882,21.2762430613925,-32.0974731445312 -158.054564073643,21.3136409187603,8.60566425323486 
+			</coordinates>
+		</LineString>
+	</Placemark>
+	<Placemark id="05FD0C62AF3EE1EC7091">
+		<name>  path from keehi</name>
+		<visibility>0</visibility>
+		<LookAt>
+			<longitude>-157.9270935516026</longitude>
+			<latitude>21.34795775030593</latitude>
+			<altitude>31.0988216024996</altitude>
+			<heading>-41.77447511329476</heading>
+			<tilt>57.43582440660415</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>16462.05867819954</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_543544EE3441F697969C</styleUrl>
+		<LineString>
+			<coordinates>
+				-157.8915746536399,21.31516175130781,0 -157.8933031792263,21.31322006667665,0 -157.8971705192493,21.31217125711642,0 -157.9046304194777,21.31163493208474,0 -157.9053737833729,21.3088230477278,0 -157.906083374398,21.29565586025238,0 -157.9070486839048,21.28970316659004,0 -157.9267521341432,21.29108196963481,0 -158.020724001539,21.29220350221732,0 
+			</coordinates>
+		</LineString>
+	</Placemark>
+	<Folder id="5DB855D524000001">
+		<name>RBR GPS Locations 0721</name>
+		<visibility>0</visibility>
+		<styleUrl>#__managed_style_3F43E926C841F697969E</styleUrl>
+		<Placemark id="5DB855D524000002">
+			<name>RBR-1_0721</name>
+			<description>Time: 2026-07-23 20:25:35+00:00</description>
+			<styleUrl>#__managed_style_4F05131AC041F697969E</styleUrl>
+			<Point>
+				<coordinates>-158.0471258796751,21.30236299708486,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="5DB855D524000003">
+			<name>RBR-2_0721</name>
+			<description>Time: 2026-07-23 20:25:35+00:00</description>
+			<styleUrl>#__managed_style_4F05131AC041F697969E</styleUrl>
+			<Point>
+				<coordinates>-158.0467299185693,21.30248403176665,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="5DB855D524000004">
+			<name>RBR-3_0721</name>
+			<description>Time: 2026-07-23 20:25:35+00:00</description>
+			<styleUrl>#__managed_style_4F05131AC041F697969E</styleUrl>
+			<Point>
+				<coordinates>-158.0466228816658,21.30228001624346,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="5DB855D524000005">
+			<name>RBR-4_0721</name>
+			<description>Time: 2026-07-23 20:25:36+00:00</description>
+			<styleUrl>#__managed_style_4F05131AC041F697969E</styleUrl>
+			<Point>
+				<coordinates>-158.0464068800211,21.30260699428618,0</coordinates>
+			</Point>
+		</Placemark>
+	</Folder>
+	<Folder id="5DB8567102000001">
+		<name>RBR GPS Locations 0723</name>
+		<visibility>0</visibility>
+		<styleUrl>#__managed_style_2D521C3A3141F697969C</styleUrl>
+		<Placemark id="5DB8567102000002">
+			<name>RBR1-0723</name>
+			<description>Time: 2026-07-23 20:40:31+00:00</description>
+			<styleUrl>#__managed_style_2B8642F28D41F697969E</styleUrl>
+			<Point>
+				<coordinates>-158.0468039512634,21.30261898040771,2.329758644104004</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="5DB8567102000003">
+			<name>RBR2-0723</name>
+			<description>Time: 2026-07-23 20:49:59+00:00</description>
+			<styleUrl>#__managed_style_2B8642F28D41F697969E</styleUrl>
+			<Point>
+				<coordinates>-158.0467669963837,21.30253100395203,1.794323921203613</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="5DB8567102000004">
+			<name>RBR3-0723</name>
+			<description>Time: 2026-07-23 21:01:42+00:00</description>
+			<styleUrl>#__managed_style_2B8642F28D41F697969E</styleUrl>
+			<Point>
+				<coordinates>-158.0467640161514,21.30247604846954,1.248113632202148</coordinates>
+			</Point>
+		</Placemark>
+	</Folder>
+	<Folder id="5DB87347A1000001">
+		<name>White Plains Topo Points (2026-07-20)</name>
+		<visibility>0</visibility>
+		<styleUrl>#__managed_style_2D521C3A3141F697969C</styleUrl>
+		<GroundOverlay id="5DB87347A1000002">
+			<name>White Plains Survey Points (1m gap-fill, ellipsoidal height)</name>
+			<description>RTK GPS/LAS survey points, 2026-07-20, colored by elevation. Only gaps up to 1m are interpolated (bridges small holes within/near transect lines); larger gaps between survey lines are left transparent -- no smoothing across the full survey area. Vertical datum: NAD83(PA11) ellipsoidal height (GRS80 ellipsoid) -- NOT orthometric or tidal (e.g. MLLW/MHW).</description>
+			<styleUrl>#__managed_style_2D521C3A3141F697969C</styleUrl>
+			<Icon>
+				<href>https://earth.usercontent.google.com/hostedimage/e/*/4AAjQbR5_KFdJZeEmtrpLrvUKTPUWVZWHee5W6yBKVQE-H5DsyHO9XKjO1Perqal7QvJ89Yn1Qqq5j_I8sOBGSgsuTlAA9LIHn-XdQGA_5KFirE9yYZmY_iy7N0ujm3KWjq7mR-GqB4zJ99mdK2g2AA3-1pXm5nNATKh2ZkyKGL110iVxoPm6ZLH2A9hezZU33Mbj7lxJ0Mid0Ek9zT836IwnhQySkK47jZ-JInGqzvJn0Xu0-k5L-U3woCDv2cubs3x06o2bRLRF2Lp6kv9k?authuser=0&amp;fife=s16383</href>
+			</Icon>
+			<LatLonBox>
+				<north>21.31038741593635</north>
+				<south>21.30083537349143</south>
+				<east>-158.0369060420615</east>
+				<west>-158.0523650385061</west>
+			</LatLonBox>
+		</GroundOverlay>
+	</Folder>
+	<Folder id="5DC2A5C2AC000001">
+		<name>Line Scan transect</name>
+		<open>1</open>
+		<styleUrl>#__managed_style_2D521C3A3141F697969C</styleUrl>
+		<Placemark id="5DC2A5C2AC000002">
+			<name>scan_footprint</name>
+			<styleUrl>#__managed_style_4D769AFF5041F697969F</styleUrl>
+			<LineString>
+				<altitudeMode>absolute</altitudeMode>
+				<coordinates>
+					-158.0469086828454,21.30283866927662,18.14275 -158.0455686216957,21.30007119931561,15.27125 
+				</coordinates>
+			</LineString>
+		</Placemark>
+	</Folder>
+	<Folder id="049DB0E8B5412224A16B">
+		<name>RBR Planned 0812</name>
+		<visibility>0</visibility>
+		<styleUrl>#__managed_style_2D521C3A3141F697969C</styleUrl>
+		<Placemark id="0F3C6B693141275203DB">
+			<name>RBR5</name>
+			<LookAt>
+				<longitude>-158.0466211570715</longitude>
+				<latitude>21.30221985359675</latitude>
+				<altitude>-0.3519561998585441</altitude>
+				<heading>0</heading>
+				<tilt>0</tilt>
+				<gx:fovy>30.00111015</gx:fovy>
+				<range>107.1643540078185</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_05A01F68AE41F697969C</styleUrl>
+			<Point>
+				<coordinates>-158.046554042185,21.30210628299767,17.38109112219543</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="0219FF52FB4127534CF3">
+			<name>RBR6</name>
+			<LookAt>
+				<longitude>-158.0464937568421</longitude>
+				<latitude>21.30200415312354</latitude>
+				<altitude>-0.4544795640866184</altitude>
+				<heading>0</heading>
+				<tilt>0</tilt>
+				<gx:fovy>30.00111015</gx:fovy>
+				<range>25.00000184782948</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_05A01F68AE41F697969C</styleUrl>
+			<Point>
+				<coordinates>-158.0464915624402,21.3019904645842,17.26609850870993</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="05373EB8F0412753FB24">
+			<name>RBR7</name>
+			<LookAt>
+				<longitude>-158.0463468339736</longitude>
+				<latitude>21.30186362771594</latitude>
+				<altitude>-0.7473146047838219</altitude>
+				<heading>0</heading>
+				<tilt>0</tilt>
+				<gx:fovy>30.00111015</gx:fovy>
+				<range>82.85421602173301</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_05A01F68AE41F697969C</styleUrl>
+			<Point>
+				<coordinates>-158.0464341452307,21.30185867594286,17.12387111113631</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="0E16B27254412754CE19">
+			<name>RBR8</name>
+			<LookAt>
+				<longitude>-158.046363642783</longitude>
+				<latitude>21.30179055983638</latitude>
+				<altitude>-0.5131789274375398</altitude>
+				<heading>0</heading>
+				<tilt>0</tilt>
+				<gx:fovy>30.00111015</gx:fovy>
+				<range>45.94678044682042</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_05A01F68AE41F697969C</styleUrl>
+			<Point>
+				<coordinates>-158.0463929244214,21.30172801301656,-0.5927739965004231</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="004013BD5F4127516E2E">
+			<name>RBR4</name>
+			<description><![CDATA[<div>Sensor 238476</div>]]></description>
+			<LookAt>
+				<longitude>-158.0465781711237</longitude>
+				<latitude>21.30224298522016</latitude>
+				<altitude>-0.3406335408111516</altitude>
+				<heading>0</heading>
+				<tilt>0</tilt>
+				<gx:fovy>30.00111015</gx:fovy>
+				<range>46.69383793218458</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_12BBC8BE9C41F697969E</styleUrl>
+			<Point>
+				<coordinates>-158.0466261200254,21.30219969005656,-0.2968387538380746</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="089A852984412750CB07">
+			<name>RBR3</name>
+			<description><![CDATA[<div>Sensor 238479</div>]]></description>
+			<LookAt>
+				<longitude>-158.0465560831159</longitude>
+				<latitude>21.30243521205734</latitude>
+				<altitude>-0.2878136280838584</altitude>
+				<heading>0</heading>
+				<tilt>0</tilt>
+				<gx:fovy>30.00111015</gx:fovy>
+				<range>175.1995083268957</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_12BBC8BE9C41F697969E</styleUrl>
+			<Point>
+				<coordinates>-158.0466659947314,21.30233748270527,17.621396176696</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="0D2AB0A31D412750467E">
+			<name>RBR2</name>
+			<description><![CDATA[<div>Sensor 238477</div>]]></description>
+			<LookAt>
+				<longitude>-158.0465560830877</longitude>
+				<latitude>21.30243521204678</latitude>
+				<altitude>-0.2878136273765342</altitude>
+				<heading>0</heading>
+				<tilt>0</tilt>
+				<gx:fovy>30.00111015</gx:fovy>
+				<range>175.1995083268957</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_12BBC8BE9C41F697969E</styleUrl>
+			<Point>
+				<coordinates>-158.0467381903858,21.30245280581989,-0.2064302765168569</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="0A40878F5541274092C6">
+			<name>RBR1</name>
+			<description><![CDATA[<div>Sensor 202768</div>]]></description>
+			<LookAt>
+				<longitude>-158.046780763472</longitude>
+				<latitude>21.30258136317072</latitude>
+				<altitude>-0.2155261438862088</altitude>
+				<heading>0</heading>
+				<tilt>0</tilt>
+				<gx:fovy>30.00111015</gx:fovy>
+				<range>24.99999895062956</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_12BBC8BE9C41F697969E</styleUrl>
+			<Point>
+				<coordinates>-158.046790642397,21.30257635121292,-0.2390271156014012</coordinates>
+			</Point>
+		</Placemark>
+	</Folder>
+	<Folder id="5E108A1E8E000001">
+		<name>RBR-0813-deployed</name>
+		<visibility>0</visibility>
+		<styleUrl>#__managed_style_2D521C3A3141F697969C</styleUrl>
+		<Folder id="5E108A1E8E000002">
+			<name>Reference Points</name>
+			<visibility>0</visibility>
+			<styleUrl>#__managed_style_2D521C3A3141F697969C</styleUrl>
+			<Folder id="5E108A1E8E000003">
+				<name>027/028</name>
+				<styleUrl>#__managed_style_2D521C3A3141F697969C</styleUrl>
+				<Placemark id="5E108A1E8E000004">
+					<name>027</name>
+					<description>Reference GPS shot</description>
+					<styleUrl>#__managed_style_998EE70A8B41F697969C</styleUrl>
+					<Point>
+						<coordinates>-158.0467807967216,21.30256684496999,0</coordinates>
+					</Point>
+				</Placemark>
+				<Placemark id="5E108A1E8E000005">
+					<name>028</name>
+					<description>Reference GPS shot</description>
+					<styleUrl>#__managed_style_998EE70A8B41F697969C</styleUrl>
+					<Point>
+						<coordinates>-158.0467810481787,21.30256843753159,0</coordinates>
+					</Point>
+				</Placemark>
+				<Placemark id="5E108A1E8E000006">
+					<name>027/028 (avg)</name>
+					<description>Averaged position of reference shots</description>
+					<styleUrl>#__managed_style_81166C16FA41F697969C</styleUrl>
+					<Point>
+						<coordinates>-158.0467809224501,21.30256764125079,0</coordinates>
+					</Point>
+				</Placemark>
+			</Folder>
+		</Folder>
+		<Folder id="5E108A1E8E000007">
+			<name>Deployed Sensors</name>
+			<styleUrl>#__managed_style_2D521C3A3141F697969C</styleUrl>
+			<Folder id="5E108A1E8E000008">
+				<name>RBR3_0813_deployed</name>
+				<styleUrl>#__managed_style_2D521C3A3141F697969C</styleUrl>
+				<Placemark id="5E108A1E8E000009">
+					<name>Rbr3-deployed</name>
+					<visibility>0</visibility>
+					<description>GPS shot at sensor deployment</description>
+					<styleUrl>#__managed_style_09BB6E2B2441F697969B</styleUrl>
+					<Point>
+						<coordinates>-158.0466840267181,21.30234503746033,0</coordinates>
+					</Point>
+				</Placemark>
+				<Placemark id="5E108A1E8E00000A">
+					<name>030</name>
+					<visibility>0</visibility>
+					<description>GPS shot at sensor deployment</description>
+					<styleUrl>#__managed_style_09BB6E2B2441F697969B</styleUrl>
+					<Point>
+						<coordinates>-158.0466857459396,21.30234128795564,0</coordinates>
+					</Point>
+				</Placemark>
+				<Placemark id="5E108A1E8E00000B">
+					<name>RBR2-0813</name>
+					<description>Averaged deployed sensor position</description>
+					<styleUrl>#__managed_style_04394EB13A41F697969E</styleUrl>
+					<Point>
+						<coordinates>-158.0466848863289,21.30234316270798,0</coordinates>
+					</Point>
+				</Placemark>
+			</Folder>
+			<Folder id="5E108A1E8E00000C">
+				<name>RBR2_0813_deployed</name>
+				<open>1</open>
+				<styleUrl>#__managed_style_2D521C3A3141F697969C</styleUrl>
+				<Placemark id="5E108A1E8E00000D">
+					<name>031</name>
+					<visibility>0</visibility>
+					<description>GPS shot at sensor deployment</description>
+					<styleUrl>#__managed_style_09BB6E2B2441F697969B</styleUrl>
+					<Point>
+						<coordinates>-158.0467697326094,21.30255804397166,0</coordinates>
+					</Point>
+				</Placemark>
+				<Placemark id="5E108A1E8E00000E">
+					<name>032</name>
+					<visibility>0</visibility>
+					<description>GPS shot at sensor deployment</description>
+					<styleUrl>#__managed_style_09BB6E2B2441F697969B</styleUrl>
+					<Point>
+						<coordinates>-158.0467700678855,21.30255402065814,0</coordinates>
+					</Point>
+				</Placemark>
+				<Placemark id="5E108A1E8E00000F">
+					<name>RBR1_0813</name>
+					<description>Averaged deployed sensor position</description>
+					<styleUrl>#__managed_style_04394EB13A41F697969E</styleUrl>
+					<Point>
+						<coordinates>-158.0467699002475,21.3025560323149,0</coordinates>
+					</Point>
+				</Placemark>
+			</Folder>
+		</Folder>
+	</Folder>
+	<Folder id="0B43F150AE41F69DD1BF">
+		<name>RBR 0911</name>
+		<visibility>0</visibility>
+		<styleUrl>#__managed_style_2D521C3A3141F697969C</styleUrl>
+		<Placemark id="0FD286F16741C6A2A107">
+			<name>RBR1_0911</name>
+			<LookAt>
+				<longitude>-158.0469135863439</longitude>
+				<latitude>21.30268276066985</latitude>
+				<altitude>-0.5927695523824794</altitude>
+				<heading>0</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>128.9728757510056</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_05A01F68AE41F697969C</styleUrl>
+			<Point>
+				<coordinates>-158.0467452596968,21.3025370744448,-0.1605714022366356</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="0CEC211DC641C6A46861">
+			<name>RBR2_0911</name>
+			<LookAt>
+				<longitude>-158.0467582224796</longitude>
+				<latitude>21.30240423564131</latitude>
+				<altitude>-0.2016695178221906</altitude>
+				<heading>0</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>147.15333833361</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_05A01F68AE41F697969C</styleUrl>
+			<Point>
+				<coordinates>-158.0466023396275,21.30229262023992,-0.2771457164133018</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="0806F962BE41C6A59C7C">
+			<name>RBR3_0911</name>
+			<LookAt>
+				<longitude>-158.0466803627517</longitude>
+				<latitude>21.30258740051941</latitude>
+				<altitude>-0.283696485605105</altitude>
+				<heading>0</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>85.03092288240623</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_05A01F68AE41F697969C</styleUrl>
+			<Point>
+				<coordinates>-158.0464669732458,21.30263638078495,-0.2837025410075744</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="0D568A51F041C6A6E3C1">
+			<name>RBR4_0911</name>
+			<LookAt>
+				<longitude>-158.0469609390817</longitude>
+				<latitude>21.30256893515232</latitude>
+				<altitude>-0.05189079570823152</altitude>
+				<heading>0</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>124.7851123322835</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_05A01F68AE41F697969C</styleUrl>
+			<Point>
+				<coordinates>-158.0470110261492,21.30242102467398,-0.4748109389668054</coordinates>
+			</Point>
+		</Placemark>
+	</Folder>
+	<Placemark id="025F47D01C41C6A1F091">
+		<name>Lidar Location</name>
+		<LookAt>
+			<longitude>-158.0469135863326</longitude>
+			<latitude>21.30268276066193</latitude>
+			<altitude>-0.5927601202142829</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>128.9728757510056</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_050DE162A241F69F5758</styleUrl>
+		<Point>
+			<coordinates>-158.0468554045371,21.30272293855744,-0.1868274094883238</coordinates>
+		</Point>
+	</Placemark>
+	<Folder id="5ED44780A0000001">
+		<name>Sensor Locations</name>
+		<styleUrl>#__managed_style_2D521C3A3141F697969C</styleUrl>
+		<Placemark id="5ED44780A0000002">
+			<name>VA1</name>
+			<styleUrl>#__managed_style_047A9EBCDC41F698257B</styleUrl>
+			<Point>
+				<coordinates>-158.0509638,21.29180457,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="5ED44780A0000003">
+			<name>VB1</name>
+			<styleUrl>#__managed_style_047A9EBCDC41F698257B</styleUrl>
+			<Point>
+				<coordinates>-158.0458943,21.29415686,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="5ED44780A0000004">
+			<name>VD2</name>
+			<styleUrl>#__managed_style_047A9EBCDC41F698257B</styleUrl>
+			<Point>
+				<coordinates>-158.02755,21.29458333,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="5ED44780A0000005">
+			<name>VC1</name>
+			<styleUrl>#__managed_style_047A9EBCDC41F698257B</styleUrl>
+			<Point>
+				<coordinates>-158.0415423,21.29732631,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="5ED44780A0000006">
+			<name>VC2</name>
+			<styleUrl>#__managed_style_047A9EBCDC41F698257B</styleUrl>
+			<Point>
+				<coordinates>-158.0403645,21.29152562,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="5ED44780A0000007">
+			<name>VE2</name>
+			<styleUrl>#__managed_style_047A9EBCDC41F698257B</styleUrl>
+			<Point>
+				<coordinates>-158.0219864,21.29800617,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="5ED44780A0000008">
+			<name>VD1</name>
+			<styleUrl>#__managed_style_047A9EBCDC41F698257B</styleUrl>
+			<Point>
+				<coordinates>-158.0286432,21.29819325,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="5ED44780A0000009">
+			<name>VE3</name>
+			<styleUrl>#__managed_style_047A9EBCDC41F698257B</styleUrl>
+			<Point>
+				<coordinates>-158.0214599,21.29443531,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="5ED44780A000000A">
+			<name>VE1</name>
+			<styleUrl>#__managed_style_047A9EBCDC41F698257B</styleUrl>
+			<Point>
+				<coordinates>-158.0227022,21.30162539,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="5ED44780A000000B">
+			<name>ADCP</name>
+			<styleUrl>#__managed_style_016BD4500D41F6A834B6</styleUrl>
+			<Point>
+				<coordinates>-158.0403645,21.29152562,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="5ED44780A000000C">
+			<name>PB1</name>
+			<styleUrl>#__managed_style_031B66267241F6A2383B</styleUrl>
+			<Point>
+				<coordinates>-158.046319,21.301555,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="5ED44780A000000D">
+			<name>PB2</name>
+			<styleUrl>#__managed_style_031B66267241F6A2383B</styleUrl>
+			<Point>
+				<coordinates>-158.045943,21.300566,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="5ED44780A000000E">
+			<name>PC1</name>
+			<styleUrl>#__managed_style_031B66267241F6A2383B</styleUrl>
+			<Point>
+				<coordinates>-158.042453,21.302061,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="5ED44780A000000F">
+			<name>PE1</name>
+			<styleUrl>#__managed_style_031B66267241F6A2383B</styleUrl>
+			<Point>
+				<coordinates>-158.0234313,21.30418145,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="5ED44780A0000010">
+			<name>PD1</name>
+			<styleUrl>#__managed_style_031B66267241F6A2383B</styleUrl>
+			<Point>
+				<coordinates>-158.0297728,21.30302507,0</coordinates>
+			</Point>
+		</Placemark>
+	</Folder>
+	<Placemark id="0F218E5A5B41F6B80279">
+		<name>Untitled path</name>
+		<LookAt>
+			<longitude>-158.0454268353361</longitude>
+			<latitude>21.29972599971817</latitude>
+			<altitude>-0.758115090936361</altitude>
+			<heading>359.2067874557517</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>2917.73879599903</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_05A01F68AE41F697969C</styleUrl>
+		<LineString>
+			<coordinates>
+				-158.0487494491585,21.3143871479753,0 -158.0427374822098,21.27840852305667,0 
+			</coordinates>
+		</LineString>
+	</Placemark>
+</Document>
+</kml>
