@@ -20,5 +20,22 @@ Third letter is the sensor type number from nearshore to offshore.
 
 ## Data Processing
 
-### ADVs
-raw data files (.vec) were converted to .nc files using the Dolfyn package. 
+### ADVs - completed 9/23
+raw data files (.vec) were converted to .nc files using the Dolfyn package. Each ADV contains four .VEC files. The workflow for processing the ADV data is as follows:
+1. Combine the four .vec files into a single .nc file using the `dolfyn` package and manifest.csv.
+2. Add metadata (sensor_notes.csv)
+3. Process the .vec files into a single .nc file using the `dolfyn` package and manifest.csv.
+
+**NOTE** had to truncate the fourth .vec file for each ADV. The last chunk of data was corrupted because it was hard stopped once it was connected to nortek software. 
+
+# Running to do list
+
+9/24:
+- convert .vec files to .nc
+- despiking
+- inspect kvh files, gopro vids, and field notebook for accurate headings
+- rotate to earth frame 
+
+## Figures
+- /orientation : pitch, roll, heading, and tilt of all sensors to sanity check vector probes. 
+
