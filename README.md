@@ -55,12 +55,24 @@ QC steps, in the order they are applied:
 - **In-water trim**: keep the longest run with p ≥ 3 dbar. Shrink it to where the 1-min heading std is calm, which cuts diver handling. Then remove a 10 s buffer from each end.
 - **Atmospheric pressure**: subtract the NOAA 1612340 (Honolulu) hourly barometer, using the pre-deployment in-air offset. The raw channel is kept as `p_raw`.
 - **Sound speed**: velocities are rescaled from the configured salinity (33.5) to 35 PSU (~0.1 %).
-- **Correlation mask**: u, v, w are set to NaN wherever any beam correlation is < 70 % (`vel_corr_ok`). Pressure is not masked.
-- **SNR flag**: any beam < 5 dB above the in-air noise floor sets `vel_low_snr`. This flag is diagnostic only and is not applied. Small SNR could be due to low flow conditions or small wave days. 
-- **Short-gap fill**: NaN runs of ≤ 2 s (4 samples) are filled with a cubic fit (dolfyn `clean_fill`) and marked in `vel_filled`. Longer gaps stay NaN.
-- **Hourly segment flag**: `seg_ok` = the 1-h segment has ≤ 10 % NaN velocity.
+- **Correlation gate** (Elgar et al., 2005): a velocity sample is bad if any beam correlation is below 0.3 + 0.4·√(fs/25). That is **41.3 % at 2 Hz**, SonTek's 0.7 at 25 Hz relaxed for the extra pings averaged into each slower sample (`vel_corr_ok`). Pressure is not masked.
+- **Replacement of bad samples** (Elgar et al., 2005):
+  - Runs of bad samples ≤ 1 s are linearly interpolated between the good samples on either side.
+  - Longer runs are replaced by a 1-s running mean of the recorded values.
+  - `vel_qc_flag` marks each sample: 0 = measured, 1 = linear interpolation, 2 = 1-s running mean. No velocity NaNs remain.
+- **SNR flag** (Elgar et al., 2005): SNR = 0.43 dB/count × (amp − in-air noise floor). `vel_low_snr` marks samples with any beam < 8 dB.
+  - Elgar's run rule (≤ 0.81 % low-SNR samples) is stored per hour as `seg_snr_ok`, as a flag only.
+  - The sensors are always submerged. Low SNR here means clear water, and those samples are only ~1.5× noisier.
+- **Hourly segment flag**: `seg_ok` = the 1-h segment has ≤ 10 % running-mean velocity (`seg_runmean_ok`) **and** passes the z² test below (`z2_ok`). `seg_interp_pct` and `seg_runmean_pct` give the hourly fractions.
+
+  Elgar, S., Raubenheimer, B., & Guza, R. T. (2005). Quality control of acoustic Doppler velocimeter data in the surfzone. *Measurement Science and Technology*, 16, 1889–1893. doi:10.1088/0957-0233/16/10/002 (`lit/`)
 - **Rotation**: KVH magnetic heading + 9.26° E declination, head up (roll 180°). The result is true ENU (`u_east`, `v_north`) and then shore-normal per transect (`u` onshore, `v` alongshore, `w` up).
-- **Z-test**: pressure vs. velocity-predicted pressure spectrum (linear theory) per 1024-s segment. If the record median falls outside 0.5–2, the record is flagged (`zt_status`). This is a flag only and removes no data.
+- **z² test** (Elgar et al., 2005, §3.3): compares measured pressure variance with the pressure variance linear theory predicts from horizontal velocity, z² = p² / [(ω/gk)² · cosh²(k d_p)/cosh²(k d_u) · (u² + v²)].
+  - Integrated over the wind-wave band, 0.05 < f < 0.20 Hz, for each clock hour (`z2`).
+  - d_p and d_u are the heights of the pressure port and the sample volume above the bed.
+  - An hour is rejected (`z2_ok` and `seg_ok` False) unless 0.5 < z² < 2.0. No samples are removed.
+  - Hours with less than 99 % of their samples, or an internal gap over 2 s (e.g. partial first and last hours), get no z² and fail.
+  - `zt_status` summarizes the record median.
 
 #### Quality Control (ADCP, `processing/adcp_QC.ipynb`)
 The same steps adapted for the Signature 1000 (4 Hz, 23 cells), plus a side-lobe surface mask and a seconds-level clock check against the co-located VC10. The final product is `data/processed/qc/ADCP_qc.nc`.
