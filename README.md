@@ -69,17 +69,58 @@ The same steps adapted for the Signature 1000 (4 Hz, 23 cells), plus a side-lobe
 - `figs/orientation/`: internal compass pitch, roll, heading and tilt of every sensor, to sanity check the Vector probes.
 - `figs/qc/`: one set per sensor: `{SENSOR}_trim`, `_clock_tide`, `_beam`, `_fill`, `_rotate`, `_ztest`. `clock_drift_all.png` covers every sensor.
 
-**planned figs**:
-- Deployment overview stack:
-  - buoy Hs, Tp, and Dp
-  - the tide
-  - swell band Hs at every sensor, colored by transect, with a line style for each depth 
-  - subtidal current speed 
-  - wind, if available...
+## Future Figures
+Planned exploratory figures from the hourly bulk statistics. Each one is paired with the question it is meant to open. Request them by number once the inputs are verified.
 
-- 
+**Prerequisites**
+- VE7 and VE10 QC.
+- An hourly bulk-stats product on a common UTC grid (`data/processed/bulk/{SENSOR}_bulk.nc`).
+- Head-motion windows, which mask direction-dependent fields only: wave direction, the u/v split, Sxy and quivers.
+- Swell events are defined from the nearest CDIP/NDBC directional buoy: Hs > P90, Tp > ~12 s, S–SW. Normalization uses the in-array 10 m reference (ADCP/VC10).
+- Spatial maps are in ENU. Transect plots are in each transect's own shore-normal frame.
 
+### A. Overview and events
+1. **Deployment overview stack.** The panels are:
+   - Buoy Hs, Tp and Dp.
+   - The tide.
+   - Swell-band Hs at every sensor, colored by transect, with a line style for each depth.
+   - Subtidal current speed.
+   - Wind, if available.
 
+   Swell events are shaded. *Which events are worth a case study?*
+2. **Pressure spectrogram per sensor** (log f × time), with events marked. Look for dispersive swell arrivals (frequency rising over days), which give the source distance and time. *Do arrivals differ across the array, which would mean refraction or sheltering?*
+
+### B. Spatial structure of waves
+3. **Map panels** (lat/lon from `sensor_notes.csv`):
+   - Hs_swell / Hs_ref as dots.
+   - Mean ENU current vectors.
+   - Shown as an event composite, a calm composite, and their difference.
+
+   *Is the alongshore Hs gradient bigger during south swell, from reef or bathymetric focusing?*
+4. **Cross-shore transformation.** Hs against h along each transect (B, C, D, E; A has only 10 m). Show the event mean ± spread, with the linear shoaling prediction from the 10 m reference overlaid. *Where does dissipation start, and does it differ between transects (reef roughness)?*
+5. **Alongshore variability at fixed depth.**
+   - The ~5 m line (VB5, VC5, VD5, VE4) and the 10 m line (VA10, VC10, VD10, VE10).
+   - Hs and direction against alongshore position, plotted against buoy direction.
+
+   *Does a change in incident direction switch which part of Ewa gets the energy?*
+6. **Infragravity.** Hs_IG / Hs_swell against Hs_swell and against Tp, plus a map of the IG fraction during events. *Bound vs free IG? Is IG enhanced shoreward on the reef transects?*
+
+### C. Currents in time
+7. **Tidal ellipse map.** M2 and K1 per sensor, and per depth bin for the ADCP. *Is the tidal flow rectified or phase-lagged along the coast?*
+8. **Subtidal current stack.** Alongshore and cross-shore at each sensor, with events shaded and the wind and buoy Hs alongside. *Do events drive alongshore flow, or does the trade-driven background dominate?*
+9. **ADCP Hovmöller.** Hourly u and v (time × height), plus mean profiles for events vs calm. *Does undertow appear at 10 m? Is the profile sheared during swell?*
+
+### D. Forcing–response and spatial scales
+10. **Forcing scatter plots**, colored by event or calm:
+    - Alongshore subtidal v against Sxy (or Hs²·sin2θ).
+    - Cross-shore u against Hs²/h (undertow scaling).
+
+    *Is the wave-driven fraction measurable at 5 and 10 m?*
+11. **Inter-sensor correlation against separation** for subtidal v and Hs_swell. Split the pairs into alongshore and cross-shore, and fit e-folding length scales for events vs calm. *Does swell shorten or lengthen the current coherence scale?*
+12. **EOF of the subtidal ENU currents** across all sensors: mode maps, and PC time series against forcing. *Is there a coherent array-wide mode, such as a recirculation cell?*
+13. **Cross-spectra or lag correlation** of the swell-band energy flux between the 10 m and 5 m sensors on each transect. *How much of the flux reaches 5 m, and how does that differ by transect?*
+
+**Phase 2 (after Paros QC):** extend 4, 6 and 13 to the Paros depths. This adds the shallow end of each transect and IG near shore.
 
 # Running to do list
 
