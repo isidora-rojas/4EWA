@@ -16,14 +16,14 @@ import xarray as xr
 root = Path(__file__).resolve().parents[1]
 qc = root / "data" / "processed" / "qc"
 
-SENSORS = ["VA1", "VB1", "VC1", "VC2", "ADCP", "VD1", "VD2", "VE1", "VE2", "VE3"]   # by transect, A -> E
-FILES = {s: qc / (f"{s}_trim.nc" if s != "ADCP" else "ADCP_qc.nc") for s in SENSORS}
+SENSORS = ["VA10", "VB5", "VC5", "VC10", "ADCP", "VD5", "VD10", "VE4", "VE7", "VE10"]   # by transect, A -> E
+FILES = {s: qc / (f"{s}_QC.nc" if s != "ADCP" else "ADCP_qc.nc") for s in SENSORS}
 
 # sensor_notes.csv drift for the sensors whose applied value differs (DRIFT_OVERRIDE in the notebooks)
 CSV_DRIFT = {"ADCP": -6.0}
 NOTES = {
-    "ADCP": "CSV −6 s (dashed) → −5.062 s\nfrom VC2 wave-band lag",
-    "VE1": "CSV +36006.126* (PC on HST)\n− 36000 s → +6.126 s",
+    "ADCP": "CSV −6 s (dashed) → −5.062 s\nfrom VC10 wave-band lag",
+    "VE4": "CSV +36006.126* (PC on HST)\n− 36000 s → +6.126 s",
 }
 
 BLUE, INK, MUTED, GRID, KEPT = "#2a78d6", "#0b0b0b", "#52514e", "#e4e3df", "#eeede9"
