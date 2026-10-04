@@ -12,7 +12,7 @@ Lidar line scans with associated day-long RBR deployments in the nearshore were 
 ### Sensor Naming Convention
 
 - **First letter**: sensor type. V = Nortek Vector (ADV), P = Paroscientific pressure sensor. The Signature 1000 is `ADCP`.
-- **Second letter**: transect line, A–E from **west to east**.
+- **Second letter**: transect line, A–E from west to east.
 - **Number**:
   - Vectors: approximate deployment depth in meters (e.g. `VA10` = Vector, transect A, ~10 m).
   - Pressure sensors: order along the transect from nearshore (e.g. `PB1`, `PB2`).
@@ -34,7 +34,7 @@ Vector IDs were changed on 2026-10-03. The old IDs numbered sensors nearshore �
 ## Data Processing
 
 ### Data files
-- `data/processed/{SENSOR}_raw.nc`: all `.vec` files for one Vector merged, with deployment metadata from `sensor_notes.csv` attached. Instrument frame, no QC. Produced by `processing/adv_raw2nc.ipynb`.
+- `data/processed/{SENSOR}_raw.nc`: all `.vec` files for one Vector merged, with deployment metadata from `sensor_notes.csv` attached.  Produced by `processing/adv_raw2nc.ipynb`.
 - `data/processed/qc/{SENSOR}_QC.nc`: final QC'd product, written at the end of `processing/adv_QC.ipynb`. Every QC choice is recorded in the global attributes (`qc_*`, `rot_*`, `zt_*`).
 - Executed QC notebook for each sensor: `processing/qc_runs/adv_QC_{SENSOR}.ipynb`.
 
@@ -67,9 +67,17 @@ QC steps, in the order they are applied:
 
 
 - **Rotation**: KVH magnetic heading + 9.26° E declination, head up (roll 180°). The result is true ENU (`u_east`, `v_north`) and then shore-normal per transect (`u` onshore, `v` alongshore, `w` up).
+  - **Sign convention**: **+u = onshore** (toward shore). **+v = alongshore toward the west**, which is 90° counter-clockwise from +u (to your left when you face the beach). **+w = up**. (u, v, w) is a right-handed frame. Each sensor's exact bearings are stored in the `long_name` of `u` and `v` in `{SENSOR}_QC.nc`:
+
+    | transect | sensors | +u toward (° true) | +v toward (° true) |
+    |---|---|---|---|
+    | A | VA10 | 355 | 265 |
+    | B | VB5 | 336 | 246 |
+    | C | VC5, VC10 | 350 | 260 |
+    | D | VD5, VD10 | 339 | 249 |
+    | E | VE4, VE7, VE10 | 3 | 273 |
 - **z² test** (Elgar et al., 2005, §3.3): compares measured pressure variance with the pressure variance linear theory predicts from horizontal velocity, z² = p² / [(ω/gk)² · cosh²(k d_p)/cosh²(k d_u) · (u² + v²)].
   - Integrated over the wind-wave band, 0.05 < f < 0.20 Hz, for each clock hour (`z2`).
-  - d_p and d_u are the heights of the pressure port and the sample volume above the bed.
   - An hour is rejected (`z2_ok` and `seg_ok` False) unless 0.5 < z² < 2.0. No samples are removed.
   - Hours with less than 99 % of their samples, or an internal gap over 2 s (e.g. partial first and last hours), get no z² and fail.
   - `zt_status` summarizes the record median.
@@ -83,7 +91,6 @@ The same steps adapted for the Signature 1000 (4 Hz, 23 cells), plus a side-lobe
   - The correlation gate is 0.3 + 0.4·√(fs/25) = 46.0 % at 4 Hz.
     - Caveat: the √fs scaling assumes more pings averaged per sample, which is not established for the Signature's 4 Hz burst.
   - Bad samples are replaced per beam and cell, before rotation: runs ≤ 1 s by linear interpolation, longer runs by a 1-s running mean.
-  - No despiking.
   - Samples above the side-lobe limit stay NaN and are never replaced.
 - **`qc` flag bits:** 1 low correlation, 2 above the side-lobe limit, 4 1-s running mean, 8 linear interpolation, 16 SNR < 8 dB.
 - **Hourly table** (`ADCP_qc_hourly.nc`, per hour and cell):
@@ -96,10 +103,27 @@ The same steps adapted for the Signature 1000 (4 Hz, 23 cells), plus a side-lobe
 ## Bulk Statistics
 - **512 s bulk-stats QC** (`processing/adv_QCBulk.ipynb`, kernel `analysiz`): each Vector's QC'd record (`{SENSOR}_QC.nc`) is split into 512 s segments (segments with < 99 % of samples are skipped), and per segment it computes:
   - `Hs`: pressure → η with the granolas cosh(kh) transfer function (`depth_correct_eta`, cut at 0.25 Hz), Welch PSD (128 s windows), Hs = 4√m0 over 0.04–0.25 Hz.
-  - `u`, `v`: mean cross-shore (+ onshore) and alongshore velocity.
+  - `u`, `v`: mean cross-shore (+ onshore) and alongshore (+ westward) velocity. See the sign convention under Rotation.
   - `cur_dir`: direction the mean current flows toward (deg true), from mean `u_east`, `v_north`.
-  - `wave_dir`: wave direction of travel (deg true) from the p–velocity co-spectrum over 0.04–0.25 Hz. This is the same method as `wave_dir_h` in `adv_QC.ipynb`.
+  - `wave_dir`: direction waves come **from** (deg true, nautical convention), from the p–velocity co-spectrum over 0.04–0.25 Hz. The method is the same as `wave_dir_h` in `adv_QC.ipynb`, but `wave_dir_h` is direction of travel (toward), so `wave_dir` = `wave_dir_h` + 180°.
   - Each variable is plotted per sensor in 3-week panels with a grey line every 3 h (`figs/qc/ADV_{var}512_{SENSOR}.png`), and the plots are inspected by eye for spikes. The table is saved to `data/processed/qc/adv_bulk512.csv`. Nothing stood out in Hs.
+
+| ID | old ID | S/N | depth (m) |
+|---|---|---|---|
+| VA10 | VA1 | 8190 | 10 |
+| VB5 | VB1 | 9649 | 5.5 |
+
+|Sensor|Segments|Hs [m]|u [m/s]|v [m/s]| 
+|---|---|---|---|---|
+|VA10 |   9935 segments  | Hs 0.50-6.05 m | u -0.28 to +0.09 |  v -0.33 to +0.30 m/s|
+|VB5 |   9769 segments   | Hs 0.51-3.47 m   | u -0.24 to +0.62   | v -0.64 to +0.37 m/s|
+|VC5 |   9918 segments   | Hs 0.44-2.48 m   | u -0.32 to +0.10   | v -0.75 to +0.27 m/s|
+|VC10|   9779 segments   | Hs 0.46-4.76 m   | u -0.19 to +0.07   | v -0.38 to +0.30 m/s|
+|VD5 |   9953 segments   | Hs 0.39-2.90 m   | u -0.37 to +0.28   | v -0.45 to +0.38 m/s|
+|VD10|   9782 segments   | Hs 0.35-5.18 m   | u -0.34 to +0.16   | v -0.31 to +0.31 m/s|
+|VE4 |   9965 segments   | Hs 0.39-2.34 m   | u -0.64 to +0.14   | v -0.55 to +0.42 m/s|
+|VE7 |   9976 segments   | Hs 0.37-2.70 m   | u -0.30 to +0.10   | v -0.30 to +0.22 m/s|
+|VE10|   9772 segments   | Hs 0.34-4.96 m   | u -0.32 to +0.11   | v -0.44 to +0.33 m/s|
 
 ## Figures
 - `figs/orientation/`: internal compass pitch, roll, heading and tilt of every sensor, to sanity check the Vector probes.
