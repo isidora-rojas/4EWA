@@ -92,6 +92,15 @@ The same steps adapted for the Signature 1000 (4 Hz, 23 cells), plus a side-lobe
   - z² over 0.05–0.20 Hz (`z2`, `z2_ok`);
   - `seg_ok` = ≤ 10 % running mean AND 0.5 < z² < 2.0.
 
+
+## Bulk Statistics
+- **512 s bulk-stats QC** (`processing/adv_QCBulk.ipynb`, kernel `analysiz`): each Vector's QC'd record (`{SENSOR}_QC.nc`) is split into 512 s segments (segments with < 99 % of samples are skipped), and per segment it computes:
+  - `Hs`: pressure → η with the granolas cosh(kh) transfer function (`depth_correct_eta`, cut at 0.25 Hz), Welch PSD (128 s windows), Hs = 4√m0 over 0.04–0.25 Hz.
+  - `u`, `v`: mean cross-shore (+ onshore) and alongshore velocity.
+  - `cur_dir`: direction the mean current flows toward (deg true), from mean `u_east`, `v_north`.
+  - `wave_dir`: wave direction of travel (deg true) from the p–velocity co-spectrum over 0.04–0.25 Hz. This is the same method as `wave_dir_h` in `adv_QC.ipynb`.
+  - Each variable is plotted per sensor in 3-week panels with a grey line every 3 h (`figs/qc/ADV_{var}512_{SENSOR}.png`), and the plots are inspected by eye for spikes. The table is saved to `data/processed/qc/adv_bulk512.csv`. Nothing stood out in Hs.
+
 ## Figures
 - `figs/orientation/`: internal compass pitch, roll, heading and tilt of every sensor, to sanity check the Vector probes.
 - `figs/qc/`: one set per sensor: `{SENSOR}_trim`, `_clock_tide`, `_beam`, `_fill`, `_rotate`, `_ztest`. `clock_drift_all.png` covers every sensor.
