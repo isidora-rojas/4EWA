@@ -2,6 +2,10 @@
 
 # Data Processing and Analysis for 4EWA (placeholder for cool project name)
 
+Contents:
+I. Data Collection
+II. Quality Control 
+
 ## Data Collection
 A two-dimensional array of bottom mounted sensors including 5 Pressure sensors, 9 Norterk ADVs, 1 Nortek Signature 1000 were deployed in the Ewa Beach region of Oahu, Hawaii from 07/28/2026 to 09/16. Please see associated .kml file for sensor locations and feel free to holla at i1rojas@ucsd.edu for data requests
 
@@ -48,15 +52,15 @@ raw data files (.vec) were converted to .nc files using the Dolfyn package. Each
 
 **NOTE** had to truncate the fourth .vec file for each ADV. The last chunk of data was corrupted because it was hard stopped once it was connected to nortek software.
 
-#### Quality Control (`processing/adv_QC.ipynb`)
+#### Initial Quality Control (`processing/adv_QC.ipynb`)
 QC steps, in the order they are applied:
 - **Seam fillers dropped**: placeholder records at `.vec` file boundaries (p = 0, all beam correlations = 0) are removed.
 - **Clock drift**: linear correction from 0 at the first raw sample to the measured drift (`sensor_notes.csv`) at the last. VE4 has an override, documented in `DRIFT_OVERRIDE`.
 - **In-water trim**: keep the longest run with p ≥ 3 dbar. Shrink it to where the 1-min heading std is calm, which cuts diver handling. Then remove a 10 s buffer from each end.
 - **Atmospheric pressure**: subtract the NOAA 1612340 (Honolulu) hourly barometer, using the pre-deployment in-air offset. The raw channel is kept as `p_raw`.
 - **Sound speed**: velocities are rescaled from the configured salinity (33.5) to 35 PSU (~0.1 %).
-- **Correlation gate** (Elgar et al., 2005): a velocity sample is bad if any beam correlation is below 0.3 + 0.4·√(fs/25). That is **41.3 % at 2 Hz**. 
-- **Replacement of bad samples** (Elgar et al., 2005):
+- **Correlation gate**: a velocity sample is bad if any beam correlation is below $0.3 + 0.4 \sqrt{f_s/25}$ That is 41.3 % at 2 Hz. 
+- **Replacement of bad samples**:
   - Runs of bad samples ≤ 1 s are linearly interpolated between the good samples on either side.
   - Longer runs are replaced by a 1-s running mean of the recorded values.
   - `vel_qc_flag` marks each sample: 0 = measured, 1 = linear interpolation, 2 = 1-s running mean. No velocity NaNs remain.
@@ -76,7 +80,8 @@ QC steps, in the order they are applied:
     | C | VC5, VC10 | 350 | 260 |
     | D | VD5, VD10 | 339 | 249 |
     | E | VE4, VE7, VE10 | 3 | 273 |
-- **z² test** (Elgar et al., 2005, §3.3): compares measured pressure variance with the pressure variance linear theory predicts from horizontal velocity, z² = p² / [(ω/gk)² · cosh²(k d_p)/cosh²(k d_u) · (u² + v²)].
+- **z² test**: compares measured pressure variance with the pressure variance linear theory predicts from horizontal velocity, $$z^2 = \frac{p^2}{
+  (\frac{\omega}{gk})^2  \frac{cosh^2(kd_p)}{cosh^2(kd_u)}(u^2+v^2)}  $$
   - Integrated over the wind-wave band, 0.05 < f < 0.20 Hz, for each clock hour (`z2`).
   - An hour is rejected (`z2_ok` and `seg_ok` False) unless 0.5 < z² < 2.0. No samples are removed.
   - Hours with less than 99 % of their samples, or an internal gap over 2 s (e.g. partial first and last hours), get no z² and fail.
@@ -84,6 +89,7 @@ QC steps, in the order they are applied:
 
 References:
  - Elgar, S., Raubenheimer, B., & Guza, R. T. (2005). Quality control of acoustic Doppler velocimeter data in the surfzone. *Measurement Science and Technology*, 16, 1889–1893. doi:10.1088/0957-0233/16/10/002 (`lit/`)
+
 
 #### Quality Control (ADCP, `processing/adcp_QC.ipynb`)
 The same steps adapted for the Signature 1000 (4 Hz, 23 cells), plus a side-lobe surface mask and a seconds-level clock check against the co-located VC10. The final product is `data/processed/qc/ADCP_qc.nc`.
@@ -122,12 +128,13 @@ The same steps adapted for the Signature 1000 (4 Hz, 23 cells), plus a side-lobe
 |VD5 |   9953 segments   | Hs 0.39-2.90 m   | u -0.37 to +0.28   | v -0.45 to +0.38 m/s|
 |VD10|   9782 segments   | Hs 0.35-5.18 m   | u -0.34 to +0.16   | v -0.31 to +0.31 m/s|
 |VE4 |   9965 segments   | Hs 0.39-2.34 m   | u -0.64 to +0.14   | v -0.55 to +0.42 m/s|
-|VE7 |   9976 segments   | Hs 0.37-2.70 m   | u -0.30 to +0.10   | v -0.30 to +0.22 m/s|
+|VE7 |   9976 segments   | Hs 0.37-2.7git0 m   | u -0.30 to +0.10   | v -0.30 to +0.22 m/s|
 |VE10|   9772 segments   | Hs 0.34-4.96 m   | u -0.32 to +0.11   | v -0.44 to +0.33 m/s|
 
 ## Figures
 - `figs/orientation/`: internal compass pitch, roll, heading and tilt of every sensor, to sanity check the Vector probes.
-- `figs/qc/`: one set per sensor: `{SENSOR}_trim`, `_clock_tide`, `_beam`, `_fill`, `_rotate`, `_ztest`. `clock_drift_all.png` covers every sensor.
+- `figs/qc/initial`: one set per sensor: `{SENSOR}_trim`, `_clock_tide`, `_beam`, `_fill`, `_rotate`, `_ztest`. `clock_drift_all.png` covers every sensor.
+- `figs/qc/bulk`: one set per sensor, showing Hs, wave direction, u, v, andcurrent direction. 
 
 ## Future Figures
 Planned exploratory figures from the hourly bulk statistics. Each one is paired with the question it is meant to open. Request them by number once the inputs are verified.
@@ -174,6 +181,17 @@ Planned exploratory figures from the hourly bulk statistics. Each one is paired 
 13. **Cross-spectra or lag correlation** of the swell-band energy flux between the 10 m and 5 m sensors on each transect. *How much of the flux reaches 5 m, and how does that differ by transect?*
 
 **Phase 2 (after Paros QC):** extend 4, 6 and 13 to the Paros depths. This adds the shallow end of each transect and IG near shore.
+
+#### A note on prong head motion
+
+Upon recovery, three ADVs (VB5, VE4, VE7) were found to have become dislodged from their plastic mounts, which attached the prong head to the vertical aluminum post on the frame mount. The movement can best be seen when computing bulk statisics, particularly wave direction.
+
+For VE4 and VE7, BS suggest using the more offshore sensor VE10 to see if an offset can be applied. Show below are figures containing the wave direction between VE10 and VE4/VE7, respectively. 
+
+![VE4_WaveDirection](/figs/qc/ADVbulk/ADV_wave_dir_diff512_VE10-VE4.png)
+![VE7_WaveDirection](/figs/qc/ADVbulk/ADV_wave_dir_diff512_VE10-VE7.png)
+![VE10vsVE4-7](figs/qc/ADVbulk/ADV_wave_dir512_scatter_VE10.png)
+
 
 # Running to do list
 
