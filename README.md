@@ -105,7 +105,7 @@ The same steps adapted for the Signature 1000 (4 Hz, 23 cells), plus a side-lobe
   - `Hs`: pressure → η with the granolas cosh(kh) transfer function (`depth_correct_eta`, cut at 0.25 Hz), Welch PSD (128 s windows), Hs = 4√m0 over 0.04–0.25 Hz.
   - `u`, `v`: mean cross-shore (+ onshore) and alongshore (+ westward) velocity. See the sign convention under Rotation.
   - `cur_dir`: direction the mean current flows toward (deg true), from mean `u_east`, `v_north`.
-  - `wave_dir`: direction waves come **from** (deg true, nautical convention), from the p–velocity co-spectrum over 0.04–0.25 Hz. The method is the same as `wave_dir_h` in `adv_QC.ipynb`, but `wave_dir_h` is direction of travel (toward), so `wave_dir` = `wave_dir_h` + 180°.
+  - `wave_dir`: wave direction of travel (deg true) from the p–velocity co-spectrum over 0.04–0.25 Hz. This is the same method as `wave_dir_h` in `adv_QC.ipynb`.
   - Each variable is plotted per sensor in 3-week panels with a grey line every 3 h (`figs/qc/ADV_{var}512_{SENSOR}.png`), and the plots are inspected by eye for spikes. The table is saved to `data/processed/qc/adv_bulk512.csv`. Nothing stood out in Hs.
 
 | ID | old ID | S/N | depth (m) |
@@ -131,13 +131,6 @@ The same steps adapted for the Signature 1000 (4 Hz, 23 cells), plus a side-lobe
 
 ## Future Figures
 Planned exploratory figures from the hourly bulk statistics. Each one is paired with the question it is meant to open. Request them by number once the inputs are verified.
-
-**Prerequisites**
-- VE7 and VE10 QC.
-- An hourly bulk-stats product on a common UTC grid (`data/processed/bulk/{SENSOR}_bulk.nc`).
-- Head-motion windows, which mask direction-dependent fields only: wave direction, the u/v split, Sxy and quivers.
-- Swell events are defined from the nearest CDIP/NDBC directional buoy: Hs > P90, Tp > ~12 s, S–SW. Normalization uses the in-array 10 m reference (ADCP/VC10).
-- Spatial maps are in ENU. Transect plots are in each transect's own shore-normal frame.
 
 ### A. Overview and events
 1. **Deployment overview stack.** The panels are:
