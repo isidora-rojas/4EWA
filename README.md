@@ -56,35 +56,37 @@ raw data files (.vec) were converted to .nc files using the Dolfyn package. Each
 QC steps, in the order they are applied:
 - **Seam fillers dropped**: placeholder records at `.vec` file boundaries (p = 0, all beam correlations = 0) are removed.
 - **Clock drift**: linear correction from 0 at the first raw sample to the measured drift (`sensor_notes.csv`) at the last. VE4 has an override, documented in `DRIFT_OVERRIDE`.
-- **In-water trim**: keep the longest run with p ≥ 3 dbar. Shrink it to where the 1-min heading std is calm, which cuts diver handling. Then remove a 10 s buffer from each end.
+- **In-water trim**: keep the longest run with $p \geq 3$ dbar. Shrink it to where the 1-min heading std is calm, which cuts diver handling. Then remove a 10 s buffer from each end.
 - **Atmospheric pressure**: subtract the NOAA 1612340 (Honolulu) hourly barometer, using the pre-deployment in-air offset. The raw channel is kept as `p_raw`.
 - **Sound speed**: velocities are rescaled from the configured salinity (33.5) to 35 PSU (~0.1 %).
-- **Correlation gate**: a velocity sample is bad if any beam correlation is below $0.3 + 0.4 \sqrt{f_s/25}$ That is 41.3 % at 2 Hz. 
+- **Correlation gate**: a velocity sample is bad if any beam correlation is below $0.3 + 0.4 \sqrt{f_s/25}$. That is 41.3 % at $f_s = 2$ Hz.
 - **Replacement of bad samples**:
-  - Runs of bad samples ≤ 1 s are linearly interpolated between the good samples on either side.
+  - Runs of bad samples $\leq 1$ s are linearly interpolated between the good samples on either side.
   - Longer runs are replaced by a 1-s running mean of the recorded values.
   - `vel_qc_flag` marks each sample: 0 = measured, 1 = linear interpolation, 2 = 1-s running mean. No velocity NaNs remain.
-- **SNR flag** (Elgar et al., 2005): SNR = 0.43 dB/count × (amp − in-air noise floor). `vel_low_snr` marks samples with any beam < 8 dB.
-  - BS's run rule (≤ 0.81 % low-SNR samples) is stored per hour as `seg_snr_ok`, as a flag only.
+- **SNR flag** (Elgar et al., 2005): $\mathrm{SNR} = 0.43\,\mathrm{dB/count} \times (\mathrm{amp} - \mathrm{in\text{-}air\ noise\ floor})$. `vel_low_snr` marks samples with any beam $\mathrm{SNR} < 8$ dB.
+  - BS's run rule ($\leq 0.81\%$ low-SNR samples) is stored per hour as `seg_snr_ok`, as a flag only.
   - The sensors are always submerged. Low SNR here means clear water, and those samples are only ~1.5× noisier.
-- **Hourly segment flag**: `seg_ok` = the 1-h segment has ≤ 10 % running-mean velocity (`seg_runmean_ok`) **and** passes the z² test below (`z2_ok`). `seg_interp_pct` and `seg_runmean_pct` give the hourly fractions.
+- **Hourly segment flag**: `seg_ok` = the 1-h segment has $\leq 10\%$ running-mean velocity (`seg_runmean_ok`) **and** passes the $z^2$ test below (`z2_ok`). `seg_interp_pct` and `seg_runmean_pct` give the hourly fractions.
 
 
 - **Rotation**: KVH magnetic heading + 9.26° E declination, head up (roll 180°). The result is true ENU (`u_east`, `v_north`) and then shore-normal per transect (`u` onshore, `v` alongshore, `w` up).
-  - **Sign convention**: **+u = onshore** (toward shore). **+v = alongshore toward the west**, which is 90° counter-clockwise from +u (to your left when you face the beach). **+w = up**. (u, v, w) is a right-handed frame. Each sensor's exact bearings are stored in the `long_name` of `u` and `v` in `{SENSOR}_QC.nc`:
+  - **Sign convention**: **$+u$ = onshore** (toward shore). **$+v$ = alongshore toward the west**, which is 90° counter-clockwise from $+u$ (to your left when you face the beach). **$+w$ = up**. $(u, v, w)$ is a right-handed frame. Each sensor's exact bearings are stored in the `long_name` of `u` and `v` in `{SENSOR}_QC.nc`:
 
-    | transect | sensors | +u toward (° true) | +v toward (° true) |
+    | transect | sensors | $+u$ toward (° true) | $+v$ toward (° true) |
     |---|---|---|---|
     | A | VA10 | 355 | 265 |
     | B | VB5 | 336 | 246 |
     | C | VC5, VC10 | 350 | 260 |
     | D | VD5, VD10 | 339 | 249 |
     | E | VE4, VE7, VE10 | 3 | 273 |
-- **z² test**: compares measured pressure variance with the pressure variance linear theory predicts from horizontal velocity, $$z^2 = \frac{p^2}{
-  (\frac{\omega}{gk})^2  \frac{cosh^2(kd_p)}{cosh^2(kd_u)}(u^2+v^2)}  $$
-  - Integrated over the wind-wave band, 0.05 < f < 0.20 Hz, for each clock hour (`z2`).
-  - An hour is rejected (`z2_ok` and `seg_ok` False) unless 0.5 < z² < 2.0. No samples are removed.
-  - Hours with less than 99 % of their samples, or an internal gap over 2 s (e.g. partial first and last hours), get no z² and fail.
+- **$z^2$ test**: compares measured pressure variance with the pressure variance linear theory predicts from horizontal velocity,
+
+  $$z^2 = \frac{p^2}{\left(\frac{\omega}{g k}\right)^2 \frac{\cosh^2(k d_p)}{\cosh^2(k d_u)} \left(u^2 + v^2\right)}$$
+
+  - Integrated over the wind-wave band, $0.05 < f < 0.20$ Hz, for each clock hour (`z2`).
+  - An hour is rejected (`z2_ok` and `seg_ok` False) unless $0.5 < z^2 < 2.0$. No samples are removed.
+  - Hours with less than 99 % of their samples, or an internal gap over 2 s (e.g. partial first and last hours), get no $z^2$ and fail.
   - `zt_status` summarizes the record median.
 
 References:
@@ -93,22 +95,22 @@ References:
 
 #### Quality Control (ADCP, `processing/adcp_QC.ipynb`)
 The same steps adapted for the Signature 1000 (4 Hz, 23 cells), plus a side-lobe surface mask and a seconds-level clock check against the co-located VC10. The final product is `data/processed/qc/ADCP_qc.nc`.
-- **Correlation, SNR, replacement and z²** follow the ADV rules (Elgar et al., 2005):
-  - The correlation gate is 0.3 + 0.4·√(fs/25) = 46.0 % at 4 Hz.
-    - Caveat: the √fs scaling assumes more pings averaged per sample, which is not established for the Signature's 4 Hz burst.
-  - Bad samples are replaced per beam and cell, before rotation: runs ≤ 1 s by linear interpolation, longer runs by a 1-s running mean.
+- **Correlation, SNR, replacement and $z^2$** follow the ADV rules (Elgar et al., 2005):
+  - The correlation gate is $0.3 + 0.4 \sqrt{f_s/25}$ = 46.0 % at $f_s = 4$ Hz.
+    - Caveat: the $\sqrt{f_s}$ scaling assumes more pings averaged per sample, which is not established for the Signature's 4 Hz burst.
+  - Bad samples are replaced per beam and cell, before rotation: runs $\leq 1$ s by linear interpolation, longer runs by a 1-s running mean.
   - Samples above the side-lobe limit stay NaN and are never replaced.
-- **`qc` flag bits:** 1 low correlation, 2 above the side-lobe limit, 4 1-s running mean, 8 linear interpolation, 16 SNR < 8 dB.
+- **`qc` flag bits:** 1 low correlation, 2 above the side-lobe limit, 4 1-s running mean, 8 linear interpolation, 16 $\mathrm{SNR} < 8$ dB.
 - **Hourly table** (`ADCP_qc_hourly.nc`, per hour and cell):
   - the flag percentages;
   - `seg_snr_ok` (flag only);
-  - z² over 0.05–0.20 Hz (`z2`, `z2_ok`);
-  - `seg_ok` = ≤ 10 % running mean AND 0.5 < z² < 2.0.
+  - $z^2$ over 0.05–0.20 Hz (`z2`, `z2_ok`);
+  - `seg_ok` = $\leq 10\%$ running mean AND $0.5 < z^2 < 2.0$.
 
 
 ## Bulk Statistics
-- **512 s bulk-stats QC** (`processing/adv_QCBulk.ipynb`, kernel `analysiz`): each Vector's QC'd record (`{SENSOR}_QC.nc`) is split into 512 s segments (segments with < 99 % of samples are skipped), and per segment it computes:
-  - `Hs`: pressure → η with the granolas cosh(kh) transfer function (`depth_correct_eta`, cut at 0.25 Hz), Welch PSD (128 s windows), Hs = 4√m0 over 0.04–0.25 Hz.
+- **512 s bulk-stats QC** (`processing/adv_QCBulk.ipynb`, kernel `analysiz`): each Vector's QC'd record (`{SENSOR}_QC.nc`) is split into 512 s segments (segments with $< 99\%$ of samples are skipped), and per segment it computes:
+  - `Hs`: pressure → $\eta$ with the granolas $\cosh(kh)$ transfer function (`depth_correct_eta`, cut at 0.25 Hz), Welch PSD (128 s windows), $H_s = 4\sqrt{m_0}$ over 0.04–0.25 Hz.
   - `u`, `v`: mean cross-shore (+ onshore) and alongshore (+ westward) velocity. See the sign convention under Rotation.
   - `cur_dir`: direction the mean current flows toward (deg true), from mean `u_east`, `v_north`.
   - `wave_dir`: wave direction of travel (deg true) from the p–velocity co-spectrum over 0.04–0.25 Hz. This is the same method as `wave_dir_h` in `adv_QC.ipynb`.
@@ -139,31 +141,30 @@ The same steps adapted for the Signature 1000 (4 Hz, 23 cells), plus a side-lobe
 ## Future Figures
 Planned exploratory figures from the hourly bulk statistics. Each one is paired with the question it is meant to open. Request them by number once the inputs are verified.
 
+
+
 ### A. Overview and events
 1. **Deployment overview stack.** The panels are:
    - Buoy Hs, Tp and Dp.
    - The tide.
    - Swell-band Hs at every sensor, colored by transect, with a line style for each depth.
-   - Subtidal current speed.
-   - Wind, if available.
 
-   Swell events are shaded. *Which events are worth a case study?*
 2. **Pressure spectrogram per sensor** (log f × time), with events marked. Look for dispersive swell arrivals (frequency rising over days), which give the source distance and time. *Do arrivals differ across the array, which would mean refraction or sheltering?*
 
 ### B. Spatial structure of waves
 3. **Map panels** (lat/lon from `sensor_notes.csv`):
-   - Hs_swell / Hs_ref as dots.
+   - $H_{s,\mathrm{swell}} / H_{s,\mathrm{ref}}$ as dots.
    - Mean ENU current vectors.
    - Shown as an event composite, a calm composite, and their difference.
 
    *Is the alongshore Hs gradient bigger during south swell, from reef or bathymetric focusing?*
-4. **Cross-shore transformation.** Hs against h along each transect (B, C, D, E; A has only 10 m). Show the event mean ± spread, with the linear shoaling prediction from the 10 m reference overlaid. *Where does dissipation start, and does it differ between transects (reef roughness)?*
+4. **Cross-shore transformation.** $H_s$ against $h$ along each transect (B, C, D, E; A has only 10 m). Show the event mean $\pm$ spread, with the linear shoaling prediction from the 10 m reference overlaid. *Where does dissipation start, and does it differ between transects (reef roughness)?*
 5. **Alongshore variability at fixed depth.**
    - The ~5 m line (VB5, VC5, VD5, VE4) and the 10 m line (VA10, VC10, VD10, VE10).
    - Hs and direction against alongshore position, plotted against buoy direction.
 
    *Does a change in incident direction switch which part of Ewa gets the energy?*
-6. **Infragravity.** Hs_IG / Hs_swell against Hs_swell and against Tp, plus a map of the IG fraction during events. *Bound vs free IG? Is IG enhanced shoreward on the reef transects?*
+6. **Infragravity.** $H_{s,\mathrm{IG}} / H_{s,\mathrm{swell}}$ against $H_{s,\mathrm{swell}}$ and against $T_p$, plus a map of the IG fraction during events. *Bound vs free IG? Is IG enhanced shoreward on the reef transects?*
 
 ### C. Currents in time
 7. **Tidal ellipse map.** M2 and K1 per sensor, and per depth bin for the ADCP. *Is the tidal flow rectified or phase-lagged along the coast?*
@@ -172,8 +173,8 @@ Planned exploratory figures from the hourly bulk statistics. Each one is paired 
 
 ### D. Forcing–response and spatial scales
 10. **Forcing scatter plots**, colored by event or calm:
-    - Alongshore subtidal v against Sxy (or Hs²·sin2θ).
-    - Cross-shore u against Hs²/h (undertow scaling).
+    - Alongshore subtidal $v$ against $S_{xy}$ (or $H_s^2 \sin 2\theta$).
+    - Cross-shore $u$ against $H_s^2/h$ (undertow scaling).
 
     *Is the wave-driven fraction measurable at 5 and 10 m?*
 11. **Inter-sensor correlation against separation** for subtidal v and Hs_swell. Split the pairs into alongshore and cross-shore, and fit e-folding length scales for events vs calm. *Does swell shorten or lengthen the current coherence scale?*
