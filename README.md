@@ -108,6 +108,7 @@ The same steps adapted for the Signature 1000 (4 Hz, 23 cells), plus a side-lobe
   - `seg_ok` = $\leq 10\%$ running mean AND $0.5 < z^2 < 2.0$.
 
 
+
 ## Bulk Statistics
 - **512 s bulk-stats QC** (`processing/adv_QCBulk.ipynb`, kernel `analysiz`): each Vector's QC'd record (`{SENSOR}_QC.nc`) is split into 512 s segments (segments with $< 99\%$ of samples are skipped), and per segment it computes:
   - `Hs`: pressure → $\eta$ with the granolas $\cosh(kh)$ transfer function (`depth_correct_eta`, cut at 0.25 Hz), Welch PSD (128 s windows), $H_s = 4\sqrt{m_0}$ over 0.04–0.25 Hz.
@@ -149,7 +150,7 @@ Planned exploratory figures from the hourly bulk statistics. Each one is paired 
    - The tide.
    - Swell-band Hs at every sensor, colored by transect, with a line style for each depth.
 
-2. **Pressure spectrogram per sensor** (log f × time), with events marked. Look for dispersive swell arrivals (frequency rising over days), which give the source distance and time. *Do arrivals differ across the array, which would mean refraction or sheltering?*
+2. **Pressure spectrogram per sensor** (log f × time). Look for dispersive swell arrivals (frequency rising over days), which give the source distance and time. *Do arrivals differ across the array, which would mean refraction or sheltering?*
 
 ### B. Spatial structure of waves
 3. **Map panels** (lat/lon from `sensor_notes.csv`):
