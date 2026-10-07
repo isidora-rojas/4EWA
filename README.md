@@ -179,7 +179,7 @@ Planned exploratory figures from the hourly bulk statistics. Each one is paired 
 
     *Is the wave-driven fraction measurable at 5 and 10 m?*
 11. **Inter-sensor correlation against separation** for subtidal v and Hs_swell. Split the pairs into alongshore and cross-shore, and fit e-folding length scales for events vs calm. *Does swell shorten or lengthen the current coherence scale?*
-12. **EOF of the subtidal ENU currents** across all sensors: mode maps, and PC time series against forcing. *Is there a coherent array-wide mode, such as a recirculation cell?*
+12. **EOF of thee subtidal ENU currents** across all sensors: mode maps, and PC time series against forcing. *Is there a coherent array-wide mode, such as a recirculation cell?*
 13. **Cross-spectra or lag correlation** of the swell-band energy flux between the 10 m and 5 m sensors on each transect. *How much of the flux reaches 5 m, and how does that differ by transect?*
 
 **Phase 2 (after Paros QC):** extend 4, 6 and 13 to the Paros depths. This adds the shallow end of each transect and IG near shore.
