@@ -108,6 +108,27 @@ The same steps adapted for the Signature 1000 (4 Hz, 23 cells), plus a side-lobe
   - `seg_ok` = $\leq 10\%$ running mean AND $0.5 < z^2 < 2.0$.
 
 
+#### Quality Control (Paros, `processing/paros_processing.ipynb`)
+Raw Tattletale binaries (`data/raw/Paros/P*/*.MPn`) to `data/processed/qc/{SITE}_QC.nc` (PB1, PB2, PC1, PD1, PE1). Folder to site: P1 PB1, P2 PB2, P3 PC1, P4 PE1, P6 PD1 (P5 was a practice unit). Executed copy per site: `processing/qc_runs/paros_processing_{SITE}.ipynb`; figures in `figs/qc/paros/`.
+- **Decode**: 7168 records per hourly file × 4 big-endian `uint16` (pressure and temperature cycles + tick counts), first record dropped. Counts → absolute pressure (psia) and °C with the calibration block of the sensor's serial in `header.dat`; matches the logger's `PAR*.DAT` to $< 1.2\times10^{-4}$ psi. The folder/serial/`sensor_notes.csv` S/N mapping is asserted in code.
+- **Timing**: fs = 2 Hz. Each file holds 7167 samples (3583.5 s), so there is a ~16.5 s gap at the end of every hourly file. Checked with a first-vs-last-15-min cross-correlation of PE1 against VE4 (lag change $0.0 \pm 0.5$ s); a 1.991 Hz clock would have shifted it by ~16 s.
+- **Clock drift**: linear, same sign convention as the ADVs (+ = sensor clock fast). The Paros drifts are 2–5 s.
+- **Atmosphere**: absolute pressure minus the NOAA 1612340 hourly barometer, interpolated to the sample times. The in-air offset is **measured but not applied** (`APPLY_AIR_OFFSET = False`): in air the Paros read −4.3 to −6.0 cm of water before deployment and +6 to +9 cm after recovery, which differ by 11–15 cm on every unit, with a flipped sensor order. The post-recovery plateau is from the units sitting in a bucket after recovery (per the field team), so `C_post` is contaminated. The pre-deployment value has no known cause for its spread either, so `C_pre` / `C_post` are kept in the attributes as diagnostics only. Unlike the Vectors, the Paros have no large internal offset to remove.
+- **Trim**: longest wet run of 1-min means ($p \geq 0.3$ dbar), minus 10 s at each end. There is no compass, so no handling trim.
+- **No despiking, no beam QC, no $z^2$ test** (no velocity). The tide check against Honolulu gives lag $-1$ to $+2$ min, $r = 0.98$.
+- **Flags**: `p_decode_flag` marks samples whose tick-wrap count differs from the modal value (none found). A step threshold is deliberately not used: bores on the reef flat give steps up to 0.8 dbar in 0.5 s with no separate glitch population, so the largest step per hour is stored as `max_step` only.
+- **Hourly `seg_ok`** (one segment per file): ≥ 99 % of 7167 samples, no internal gap > 2 s, no decode errors, positive depth. Only the partial hours at deployment and recovery fail (99.8–99.9 % good). `Hs_SS` (0.04–0.25 Hz) is the pressure Hs **without** the depth correction, a diagnostic only.
+- **Output** (`time`, **not a uniform grid**: 7167 samples per file, then a 16.5 s gap every hour; use the time coordinate and interpolate onto common times for cross-spectra with the Vectors. A 512 s segmentation aligned to file starts is needed to avoid losing about 1 in 7 segments, since 7 × 512 s = 3584 s): `p` (dbar, gauge), `p_raw` (absolute), `patm`, `temp`, `p_decode_flag`; (`hour`): `seg_ok` and its tests, `n`, `frac`, `max_gap_s`, `depth_h`, `Hs_SS`.
+
+| site | folder | S/N | in water | median depth (m) | `seg_ok` | Hs_SS vs nearest ADV (median) |
+|---|---|---|---|---|---|---|
+| PB1 | P1 | 23626 | 07-28 → 09-16 | 2.31 | 99.8 % | 0.60 (VB5) |
+| PB2 | P2 | 35605 | 07-28 → 09-16 | 2.80 | 99.8 % | 0.69 (VB5) |
+| PC1 | P3 | 35604 | 07-28 → 09-16 | 2.43 | 99.8 % | 0.72 (VC5) |
+| PD1 | P6 | 35603 | 08-05 → 09-16 | 3.00 | 99.8 % | 0.74 (VD5) |
+| PE1 | P4 | 24069 | 08-05 → 09-16 | 2.76 | 99.9 % | 0.96 (VE4) |
+
+PC1 was found buried about 6 in (0.15 m) in sand at recovery; this only enters `depth_h` through `Z_P_HAB`.
 
 ## Bulk Statistics
 - **512 s bulk-stats QC** (`processing/adv_QCBulk.ipynb`, kernel `analysiz`): each Vector's QC'd record (`{SENSOR}_QC.nc`) is split into 512 s segments (segments with $< 99\%$ of samples are skipped), and per segment it computes:
